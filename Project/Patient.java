@@ -1,43 +1,57 @@
 package DataModel;
 
 public class Patient{
-	enum Pstatus{
-		FREE,
-		PENDING
-	}
-	
 	private String id;
 	private String name;
 	private int phone;
+	private String gender;
 	private String address;
-	private String[] symptoms;
-	private Pstatus status;
+	private String state;
+	private String status;
 	
-	Patient(String id, String name, int phone, String address, String[] symptoms){
+	Patient(String id, String name, int phone, String gender,String address, String state){
 		this.id = id;
 		this.name = name;
 		this.phone = phone;
+		this.gender = gender;
 		this.address = address;
-		this.symptoms = symptoms;
-		this.status = Pstatus.FREE;
+		this.state = state;
+		this.status = "FREE";
 	}
 	
-	String getId(){
+	Patient(String id, String name, int phone, String gender,String address, String state, String status){
+		this.id = id;
+		this.name = name;
+		this.phone = phone;
+		this.gender = gender;
+		this.address = address;
+		this.state = state;
+		this.status = status;
+	}
+	
+	public void setStatus(String status){
+		this.status = status;
+	}
+	
+	public String getId(){
 		return id;
 	}
-	String getName(){
+	public String getName(){
 		return name;
 	}
-	int getPhone(){
+	public int getPhone(){
 		return phone;
 	}
-	String getAddress(){
+	public String getGender(){
+		return gender;
+	}
+	public String getAddress(){
 		return address;
 	}
-	String[] getSymptoms(){
-		return symptoms;
+	public String getState(){
+		return state;
 	}
-	Pstatus getStatus(){
+	public String getStatus(){
 		return status;
 	}
 }

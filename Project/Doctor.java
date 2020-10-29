@@ -1,17 +1,12 @@
 package DataModel;
 
 public class Doctor{
-	enum Dstatus{
-		FREE,
-		BUSY
-	}
-	
 	private String id;
 	private String name;
 	private int phone;
 	private String address;
 	private String speciality;
-	private Dstatus status;
+	private String status;
 	
 	Doctor(String id, String name, int phone, String address, String speciality){
 		this.id = id;
@@ -19,25 +14,38 @@ public class Doctor{
 		this.phone = phone;
 		this.address = address;
 		this.speciality = speciality;
-		this.status = Dstatus.FREE;
+		this.status = "FREE";
 	}
 	
-	String getId(){
+	Doctor(String id, String name, int phone, String address, String speciality, String status){
+		this.id = id;
+		this.name = name;
+		this.phone = phone;
+		this.address = address;
+		this.speciality = speciality;
+		this.status = status;
+	}
+	
+	public void setStatus(String status){
+		this.status = status;
+	}
+	
+	public String getId(){
 		return id;
 	}
-	String getName(){
+	public String getName(){
 		return name;
 	}
-	int getPhone(){
+	public int getPhone(){
 		return phone;
 	}
-	String getAddress(){
+	public String getAddress(){
 		return address;
 	}
-	String getSpeciality(){
+	public String getSpeciality(){
 		return speciality;
 	}
-	Dstatus getStatus(){
+	public String getStatus(){
 		return status;
 	}
 }

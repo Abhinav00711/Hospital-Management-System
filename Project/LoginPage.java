@@ -17,7 +17,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.beans.value.ChangeListener;
 
-public class Main extends Application  {
+public class LoginPage extends Application  {
     @Override
     public void start(Stage primaryStage) throws FileNotFoundException{
     	Rectangle r1 = new Rectangle();  
@@ -67,13 +67,13 @@ public class Main extends Application  {
         
         Button login = new Button("Login");
         
-        FileInputStream inputstream1 = new FileInputStream("user.png"); 
+        FileInputStream inputstream1 = new FileInputStream("Images/user.png"); 
         Image user_img = new Image(inputstream1);
         ImageView user_imv = new ImageView(user_img);
         user_imv.setFitHeight(30); 
         user_imv.setFitWidth(20); 
         
-        FileInputStream inputstream2 = new FileInputStream("lock.png"); 
+        FileInputStream inputstream2 = new FileInputStream("Images/lock.png"); 
         Image pass_img = new Image(inputstream2);
         ImageView pass_imv = new ImageView(pass_img);
         pass_imv.setFitHeight(30); 
@@ -117,7 +117,7 @@ public class Main extends Application  {
         Scene scene = new Scene(gp, 490, 600);
         primaryStage.setScene(scene);
         primaryStage.show();
-        primaryStage.getIcons().add(new Image("file:icon.png"));
+        primaryStage.getIcons().add(new Image("file:Images/icon.png"));
         primaryStage.setTitle("Login");
         primaryStage.setAlwaysOnTop(true);
         

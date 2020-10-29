@@ -8,7 +8,7 @@ public class Doctor{
 	private String speciality;
 	private String status;
 	
-	Doctor(String id, String name, int phone, String address, String speciality){
+	public Doctor(String id, String name, int phone, String address, String speciality){
 		this.id = id;
 		this.name = name;
 		this.phone = phone;
@@ -17,7 +17,7 @@ public class Doctor{
 		this.status = "FREE";
 	}
 	
-	Doctor(String id, String name, int phone, String address, String speciality, String status){
+	public Doctor(String id, String name, int phone, String address, String speciality, String status){
 		this.id = id;
 		this.name = name;
 		this.phone = phone;

@@ -6,14 +6,14 @@ public class Ambulance{
 	private String driverName;
 	private String status;
 	
-	Ambulance(String id, String number, String driverName){
+	public Ambulance(String id, String number, String driverName){
 		this.id = id;
 		this.number = number;
 		this.driverName = driverName;
 		this.status = "FREE";
 	}
 	
-	Ambulance(String id, String number, String driverName, String status){
+	public Ambulance(String id, String number, String driverName, String status){
 		this.id = id;
 		this.number = number;
 		this.driverName = driverName;

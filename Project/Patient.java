@@ -9,7 +9,7 @@ public class Patient{
 	private String state;
 	private String status;
 	
-	Patient(String id, String name, int phone, String gender,String address, String state){
+	public Patient(String id, String name, int phone, String gender,String address, String state){
 		this.id = id;
 		this.name = name;
 		this.phone = phone;
@@ -19,7 +19,7 @@ public class Patient{
 		this.status = "FREE";
 	}
 	
-	Patient(String id, String name, int phone, String gender,String address, String state, String status){
+	public Patient(String id, String name, int phone, String gender,String address, String state, String status){
 		this.id = id;
 		this.name = name;
 		this.phone = phone;

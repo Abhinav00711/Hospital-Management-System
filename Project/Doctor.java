@@ -6,12 +6,12 @@ public class Doctor{
 		BUSY
 	}
 	
-	String id;
-	String name;
-	int phone;
-	String address;
-	String speciality;
-	Dstatus status;
+	private String id;
+	private String name;
+	private int phone;
+	private String address;
+	private String speciality;
+	private Dstatus status;
 	
 	Doctor(String id, String name, int phone, String address, String speciality){
 		this.id = id;
@@ -20,5 +20,24 @@ public class Doctor{
 		this.address = address;
 		this.speciality = speciality;
 		this.status = Dstatus.FREE;
+	}
+	
+	String getId(){
+		return id;
+	}
+	String getName(){
+		return name;
+	}
+	int getPhone(){
+		return phone;
+	}
+	String getAddress(){
+		return address;
+	}
+	String getSpeciality(){
+		return speciality;
+	}
+	Dstatus getStatus(){
+		return status;
 	}
 }

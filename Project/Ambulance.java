@@ -1,33 +1,39 @@
 package DataModel;
 
 public class Ambulance{
-	enum Astatus{
-		FREE,
-		BUSY
-	}
-	
 	private String id;
 	private String number;
 	private String driverName;
-	private Astatus status;
+	private String status;
 	
 	Ambulance(String id, String number, String driverName){
 		this.id = id;
 		this.number = number;
 		this.driverName = driverName;
-		this.status = Astatus.FREE;
+		this.status = "FREE";
 	}
 	
-	String getId(){
+	Ambulance(String id, String number, String driverName, String status){
+		this.id = id;
+		this.number = number;
+		this.driverName = driverName;
+		this.status = status;
+	}
+	
+	public void setStatus(String status){
+		this.status = status;
+	}
+
+	public String getId(){
 		return id;
 	}
-	String getNumber(){
+	public String getNumber(){
 		return number;
 	}
-	String getDriverName(){
+	public String getDriverName(){
 		return driverName;
 	}
-	Astatus getStatus(){
+	public String getStatus(){
 		return status;
 	}
 }

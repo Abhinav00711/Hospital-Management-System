@@ -16,6 +16,8 @@ import javafx.geometry.Pos;
 import javafx.scene.paint.Color; 
 import javafx.scene.shape.Rectangle;
 import javafx.beans.value.ChangeListener;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 
 public class LoginPage extends Application  {
     @Override
@@ -53,6 +55,13 @@ public class LoginPage extends Application  {
         r7.setFill(Color.LIGHTBLUE);
         r8.setFill(Color.LIGHTBLUE);
         
+        ToggleGroup role = new ToggleGroup();
+        
+        RadioButton doctor = new RadioButton("Doctor");
+        doctor.setToggleGroup(role);
+        RadioButton patient = new RadioButton("Patient");
+        patient.setToggleGroup(role);
+        
         Label heading = new Label("Hospital Management System");
         heading.setStyle("-fx-font: normal bold 20px 'arial' "); 
         heading.setAlignment(Pos.CENTER);
@@ -83,6 +92,12 @@ public class LoginPage extends Application  {
         gp.setMinSize(490, 600);
         GridPane gridPane = new GridPane();
         
+        GridPane gp1 = new GridPane();
+        gp1.setAlignment(Pos.CENTER);
+        gp1.add(doctor, 0, 0);
+        gp1.add(patient, 1, 0);
+        gp1.setHgap(7);
+        gp1.setStyle("-fx-background-color: LIGHTSKYBLUE;"); 
         
         gridPane.setMinSize(200, 100); 
         gridPane.setPadding(new Insets(12, 12, 12, 12));  
@@ -90,12 +105,13 @@ public class LoginPage extends Application  {
         gridPane.setHgap(7);       
         
         gridPane.setAlignment(Pos.CENTER);  
-        gridPane.add(user_imv, 0, 0); 
-        gridPane.add(user_field, 1, 0);
-        gridPane.add(pass_imv, 0, 1); 
-        gridPane.add(pass_field, 1, 1);
-        gridPane.add(login, 1, 2);
-        gridPane.add(register, 1, 3);
+        gridPane.add(gp1, 1, 0);
+        gridPane.add(user_imv, 0, 1); 
+        gridPane.add(user_field, 1, 1);
+        gridPane.add(pass_imv, 0, 2); 
+        gridPane.add(pass_field, 1, 2);
+        gridPane.add(login, 1, 3);
+        gridPane.add(register, 1, 4);
         gridPane.setStyle("-fx-background-color: WHITE;");  
         
         

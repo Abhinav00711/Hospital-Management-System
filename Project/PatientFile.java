@@ -25,7 +25,7 @@ public class PatientFile{
 					patient.delete();
 					e.printStackTrace();
 				}
-				AddStatus(id);
+				UpdateStatus(id,"FREE");
 				AddPatientList(id);
 				AddUser(id,password);
 			} else {
@@ -80,12 +80,12 @@ public class PatientFile{
 		return false;
 	}
 	
-	public void AddStatus(String id){
+	public void UpdateStatus(String id, String s){
 		File status = new File(id.concat("_Status.txt"));
 		try {
 			FileWriter fw = new FileWriter(status);
 			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write("FREE");
+			bw.write(s);
 			bw.close();
 			fw.close();
 		} catch (IOException e) {
@@ -94,6 +94,8 @@ public class PatientFile{
 			e.printStackTrace();
 		}
 	}
+	
+	
 	
 	public String GetStatus(String id){
 		String status;

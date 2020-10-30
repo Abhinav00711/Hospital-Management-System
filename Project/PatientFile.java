@@ -136,4 +136,61 @@ public class PatientFile{
 		}
 		return null;
 	}
+	
+	public void AddSymptoms(List<String> symptoms,String id){
+		ListIterator<String> sitr = symptoms.listIterator();
+		try {
+			File symp = new File(id.concat("_symptoms.txt"));
+			if(!symp.exists()){
+				symp.createNewFile();
+			}
+			try {
+				FileWriter fw = new FileWriter(symp);
+				BufferedWriter bw = new BufferedWriter(fw);
+				bw.write(sitr.next());
+				while(sitr.hasNext()){
+					bw.newLine();
+					bw.write(sitr.next());
+				}
+				bw.close();
+				fw.close();
+			} catch (IOException e) {
+				System.out.println("An error occurred.");
+				e.printStackTrace();
+			}
+		} catch (IOException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+	}
+	
+	public void ClearSymptoms(String id){
+		File symp = new File(id.concat("_symptoms.txt"));
+		if(symp.exists()){
+			try {
+				PrintWriter pw = new PrintWriter(symp);
+				pw.print("");
+				pw.close();
+			} catch (IOException e) {
+				System.out.println("An error occurred.");
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public List<String> GetSymptoms (String id){
+		File list = new File(id.concat("_symptoms.txt"));
+		if(list.exists()){
+			List<String> lines = Collections.emptyList(); 
+			try
+			{
+			  lines = Files.readAllLines(Paths.get(list.getPath()), StandardCharsets.UTF_8); 
+			} catch (IOException e) 
+			{
+			  e.printStackTrace(); 
+			} 
+			return lines;
+		}
+		return Collections.emptyList();
+	}
 }

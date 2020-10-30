@@ -8,7 +8,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.*; 
 
 public class PatientFile{
-	public void addPatient(Patient p){
+	public void addPatient(Patient p,String password){
 		String id = p.getId();
 		try{
 			File patient = new File(id.concat(".txt"));
@@ -27,6 +27,7 @@ public class PatientFile{
 				}
 				AddStatus(id);
 				AddPatientList(id);
+				AddUser(id,password);
 			} else {
 				System.out.println("Account already exists.");
 			}
@@ -34,6 +35,49 @@ public class PatientFile{
 			System.out.println("An error occurred.");
 			e.printStackTrace();
 		}
+	}
+	
+	public void AddUser(String id, String password){
+		try{
+			File user = new File("PUserList.txt");
+			if(!user.exists()){
+				user.createNewFile();
+			}
+			try {
+					FileWriter fw = new FileWriter(user,true);
+					BufferedWriter bw = new BufferedWriter(fw);
+					bw.write(id + "," + password);
+					bw.close();
+					fw.close();
+			} catch (IOException e) {
+				System.out.println("An error occurred.");
+				e.printStackTrace();
+			}
+		} catch (IOException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+	}
+	
+	public boolean IsAuthenticatePatient(String id, String password){
+		File user = new File("PUserList.txt");
+		if(user.exists()){
+			try{
+				Scanner read = new Scanner(user);
+                   read.useDelimiter(",");
+				while(read.nextLine() !=null){
+                      String username = read.next();
+                      String pass = read.next();
+                      if(id.equals(username) && password.equals(pass)){
+                         return true;                
+                      }
+                   }
+			} catch (IOException e) {
+				System.out.println("An error occurred.");
+				e.printStackTrace();
+			}
+		}
+		return false;
 	}
 	
 	public void AddStatus(String id){

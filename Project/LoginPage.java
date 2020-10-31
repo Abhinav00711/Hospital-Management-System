@@ -16,6 +16,9 @@ import javafx.scene.shape.Rectangle;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*; 
+import javafx.beans.value.*; 
+import java.lang.String;
 
 public class LoginPage extends Application  {
     @Override
@@ -87,7 +90,7 @@ public class LoginPage extends Application  {
         pass_imv.setFitWidth(20); 
         
         GridPane gp = new GridPane();
-        gp.setMinSize(490, 600);
+        gp.setMinSize(700, 600);
         GridPane gridPane = new GridPane();
         
         GridPane gp1 = new GridPane();
@@ -128,7 +131,7 @@ public class LoginPage extends Application  {
 
         login.setStyle("-fx-background-color: lightgreen; -fx-text-fill: white;");
         
-        Scene scene = new Scene(gp, 490, 600);
+        Scene scene = new Scene(gp, 700, 600);
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.getIcons().add(new Image("file:Images/icon.png"));
@@ -143,6 +146,24 @@ public class LoginPage extends Application  {
             	register.setTextFill(Color.BLACK);
             }
         });
+        
+        role.selectedToggleProperty().addListener(new ChangeListener<Toggle>(){ 
+            public void changed(ObservableValue<? extends Toggle> ob, Toggle o, Toggle n){ 
+            	String s = "";
+                RadioButton rb = (RadioButton)role.getSelectedToggle(); 
+  
+                if (rb != null) { 
+                    s = rb.getText(); 
+                } 
+                if(s.equals("Doctor")) {
+                	register.setVisible(false);
+                }
+                else {
+                	register.setVisible(true);
+                }
+            } 
+        }); 
+        
     }
 
 

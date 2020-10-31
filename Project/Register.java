@@ -96,7 +96,7 @@ public class Register extends Application  {
         Scene scene = new Scene(gp, 700, 600);
         primaryStage.setScene(scene);
         primaryStage.show();
-        primaryStage.getIcons().add(new Image("file:Images/icon1.png"));
+        primaryStage.getIcons().add(new Image("file:Images/icon.png"));
         primaryStage.setTitle("Register");
         primaryStage.setAlwaysOnTop(true);
  

@@ -23,10 +23,11 @@ public class Menu extends Application  {
     	vbox.setStyle("-fx-background-color: LIGHTBLUE;");
     	
     	Label heading = new Label("Menu");
-    	heading.setStyle("-fx-font: normal bold 20px 'arial' ");
+    	heading.setStyle("-fx-font: normal bold 30px 'arial' ");
     	
-    	String det = "Hospital Management System allows patients to remotely interact with doctors";
+    	String det = "Hospital Management System allows patients to remotely interact with doctors\nHospital Management System allows patients to remotely interact with doctors\n";
     	Label details = new Label(det);
+		details.setWrapText(false);
     	details.setStyle("-fx-padding: 10;" + 
     			"-fx-background-color: WHITE;" +
                 "-fx-border-style: solid inside;" + 
@@ -118,7 +119,7 @@ public class Menu extends Application  {
         Scene scene = new Scene(vbox, 700, 600);
         primaryStage.setScene(scene);
         primaryStage.show();
-        primaryStage.getIcons().add(new Image("file:Images/hospital.png"));
+        primaryStage.getIcons().add(new Image("file:Images/icon.png"));
         primaryStage.setTitle("Menu");
         primaryStage.setAlwaysOnTop(true);
         

@@ -1,5 +1,4 @@
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,49 +11,26 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException; 
 import javafx.geometry.Pos; 
 import javafx.scene.paint.Color; 
-import javafx.scene.shape.Rectangle;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.*; 
 import javafx.beans.value.*; 
 import java.lang.String;
+import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 
 public class LoginPage extends Application  {
     @Override
     public void start(Stage primaryStage) throws FileNotFoundException{
-    	Rectangle r1 = new Rectangle();  
-        r1.setWidth(100.0f); 
-        r1.setHeight(200.0f); 
-        Rectangle r2 = new Rectangle();  
-        r2.setWidth(100.0f); 
-        r2.setHeight(200.0f); 
-        Rectangle r3 = new Rectangle();  
-        r3.setWidth(100.0f); 
-        r3.setHeight(200.0f); 
-        Rectangle r4 = new Rectangle();  
-        r4.setWidth(100.0f); 
-        r4.setHeight(200.0f); 
-        Rectangle r5 = new Rectangle();  
-        r5.setWidth(100.0f); 
-        r5.setHeight(200.0f); 
-        Rectangle r6 = new Rectangle();  
-        r6.setWidth(100.0f); 
-        r6.setHeight(200.0f); 
-        Rectangle r7 = new Rectangle();  
-        r7.setWidth(100.0f); 
-        r7.setHeight(200.0f); 
-        Rectangle r8 = new Rectangle();  
-        r8.setWidth(100.0f); 
-        r8.setHeight(200.0f); 
-        r1.setFill(Color.LIGHTBLUE);
-        r2.setFill(Color.LIGHTBLUE);
-        r3.setFill(Color.LIGHTBLUE);
-        r4.setFill(Color.LIGHTBLUE);
-        r5.setFill(Color.LIGHTBLUE);
-        r6.setFill(Color.LIGHTBLUE);
-        r7.setFill(Color.LIGHTBLUE);
-        r8.setFill(Color.LIGHTBLUE);
+    	VBox vbox = new VBox(3);
+    	vbox.setAlignment(Pos.TOP_CENTER);
+    	vbox.setSpacing(150);
+    	vbox.setStyle("-fx-background-color: LIGHTBLUE;");
+    	
+    	HBox hbox = new HBox();
+    	hbox.setAlignment(Pos.CENTER);
+    	hbox.setSpacing(10);
         
         ToggleGroup role = new ToggleGroup();
         
@@ -88,10 +64,9 @@ public class LoginPage extends Application  {
         ImageView pass_imv = new ImageView(pass_img);
         pass_imv.setFitHeight(30); 
         pass_imv.setFitWidth(20); 
-        
-        GridPane gp = new GridPane();
-        gp.setMinSize(700, 600);
+       
         GridPane gridPane = new GridPane();
+        gridPane.setMinSize(300, 300);
         
         GridPane gp1 = new GridPane();
         gp1.setAlignment(Pos.CENTER);
@@ -100,8 +75,6 @@ public class LoginPage extends Application  {
         gp1.setHgap(7);
         gp1.setStyle("-fx-background-color: LIGHTSKYBLUE;"); 
         
-        gridPane.setMinSize(200, 100); 
-        gridPane.setPadding(new Insets(12, 12, 12, 12));  
         gridPane.setVgap(7); 
         gridPane.setHgap(7);       
         
@@ -115,23 +88,15 @@ public class LoginPage extends Application  {
         gridPane.add(register, 1, 4);
         gridPane.setStyle("-fx-background-color: WHITE;");  
         
+        hbox.getChildren().add(gridPane);
         
-        gp.setAlignment(Pos.CENTER);
-        gp.add(r1, 0, 0);
-        gp.add(heading, 1, 0);
-        gp.add(r3, 2, 0);
-        gp.add(r4, 0, 1);
-        gp.add(gridPane, 1, 1);
-        gp.add(r5, 2, 1);
-        gp.add(r6, 0, 2);
-        gp.add(r7, 1, 2);
-        gp.add(r8, 2, 2);
-        gp.setStyle("-fx-background-color: LIGHTBLUE;");
+        vbox.getChildren().add(heading);
+        vbox.getChildren().add(hbox);
         
 
         login.setStyle("-fx-background-color: lightgreen; -fx-text-fill: white;");
         
-        Scene scene = new Scene(gp, 700, 600);
+        Scene scene = new Scene(vbox, 700, 600);
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.getIcons().add(new Image("file:Images/icon.png"));

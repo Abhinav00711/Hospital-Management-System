@@ -14,7 +14,6 @@ import javafx.scene.image.*;
 import java.io.FileInputStream; 
 import java.io.FileNotFoundException;
 import javafx.geometry.Pos;
-import javafx.geometry.HPos;
 
 public class Appointment extends Application {
 

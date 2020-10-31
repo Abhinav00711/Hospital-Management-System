@@ -41,7 +41,7 @@ public class Register extends Application  {
         RadioButton female = new RadioButton("Female");
         female.setToggleGroup(gender);
         
-        ChoiceBox state = new ChoiceBox();
+        ChoiceBox<String> state = new ChoiceBox<String>();
         state.getItems().addAll("Karnataka", "Maharashtra", "West Bengal", "Uttar Pradesh", "Kerala");
         state.setValue("State");
     	

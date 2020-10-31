@@ -1,6 +1,5 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage; 
 import javafx.scene.image.*;
@@ -73,12 +72,15 @@ public class Menu extends Application  {
                 "-fx-border-radius: 5;" + 
                 "-fx-border-color: #5494e3;");
     	
-    	Button user = new Button("User Profile");
-    	user.setStyle("-fx-background-color: lightgreen; -fx-text-fill: white;");
-    	Button app = new Button("Appointment");
-    	app.setStyle("-fx-background-color: lightgreen; -fx-text-fill: white;");
-    	Button qa = new Button("Q&A");
-    	qa.setStyle("-fx-background-color: lightgreen; -fx-text-fill: white;");
+    	Label user = new Label("User Profile");
+    	user.setStyle("-fx-text-fill: #67d0eb;" +
+    			"-fx-font: normal bold 23px 'arial' ");
+    	Label app = new Label("Appointment");
+    	app.setStyle("-fx-text-fill: #ed615c;" +
+    			"-fx-font: normal bold 23px 'arial' ");
+    	Label qa = new Label("Q&A");
+    	qa.setStyle("-fx-text-fill: #677feb;" +
+    			"-fx-font: normal bold 23px 'arial' ");
         
         FileInputStream inputstream = new FileInputStream("Images/user_profile.png"); 
         Image user_img = new Image(inputstream);
@@ -170,10 +172,8 @@ public class Menu extends Application  {
             }
 
         });
-  
-        
-    }
 
+    }
 
     public static void main(String[] args) {
         launch(args);

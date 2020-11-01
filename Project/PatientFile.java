@@ -16,18 +16,17 @@ public class PatientFile{
 				try {
 					FileWriter fw = new FileWriter(patient);
 					BufferedWriter bw = new BufferedWriter(fw);
-					bw.write(p.getName() + "\n" + p.getPhone() + "\n" + p.getGender() + "\n" + p.getAddress() + "\n" + p.getState());
+					bw.write(p.getName() + "\n" + p.getPhone() + "\n" + p.getGender() + "\n" + p.getAddress() + "\n" + p.getState() + "\n" + password);
 					bw.close();
 					fw.close();
+					UpdateStatus(id,"FREE");
+					AddPatientList(id);
 					System.out.println("Account Created");
 				} catch (IOException e) {
 					System.out.println("An error occurred.");
 					patient.delete();
 					e.printStackTrace();
 				}
-				UpdateStatus(id,"FREE");
-				AddPatientList(id);
-				AddUser(id,password);
 			} else {
 				System.out.println("Account already exists.");
 			}
@@ -37,41 +36,21 @@ public class PatientFile{
 		}
 	}
 	
-	public void AddUser(String id, String password){
-		try{
-			File user = new File("PUserList.txt");
-			if(!user.exists()){
-				user.createNewFile();
-			}
-			try {
-					FileWriter fw = new FileWriter(user,true);
-					BufferedWriter bw = new BufferedWriter(fw);
-					bw.write(id + "," + password);
-					bw.close();
-					fw.close();
-			} catch (IOException e) {
-				System.out.println("An error occurred.");
-				e.printStackTrace();
-			}
-		} catch (IOException e) {
-			System.out.println("An error occurred.");
-			e.printStackTrace();
-		}
-	}
-	
 	public boolean IsAuthenticatePatient(String id, String password){
-		File user = new File("PUserList.txt");
+		File user = new File(id.concat(".txt"));
 		if(user.exists()){
 			try{
 				Scanner read = new Scanner(user);
-                   read.useDelimiter(",");
-				while(read.nextLine() !=null){
-                      String username = read.next();
-                      String pass = read.next();
-                      if(id.equals(username) && password.equals(pass)){
-                         return true;                
-                      }
-                   }
+                String pass;
+				pass = read.nextLine();
+				pass = read.nextLine();
+				pass = read.nextLine();
+				pass = read.nextLine();
+				pass = read.nextLine();
+				pass = read.nextLine();
+                if(password.equals(pass)){
+                   return true;                
+                }
 			} catch (IOException e) {
 				System.out.println("An error occurred.");
 				e.printStackTrace();

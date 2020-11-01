@@ -2,6 +2,8 @@ package Screens;
 
 import Screens.Register;
 import Screens.Menu;
+import FileUtils.CurrentUser;
+import FileUtils.PatientFile;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -26,6 +28,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
 import javafx.scene.input.MouseEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class Login extends Application  {
     @Override
@@ -152,7 +156,47 @@ public class Login extends Application  {
 		login.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
-            	//Authenticate and sign in
+				Alert a = new Alert(AlertType.ERROR);
+				a.setHeaderText("Invalid Input");
+				a.initOwner(primaryStage);
+				
+				if (user_field.getText().isEmpty()) {
+					a.setContentText("Enter Username/ID");
+					a.showAndWait();
+				} else if (pass_field.getText().isEmpty()) {
+					a.setContentText("Enter Password");
+					a.show();
+				} else  {
+					String s = "";
+					RadioButton rb = (RadioButton)role.getSelectedToggle(); 
+					if (rb != null) { 
+						s = rb.getText();
+						if(s.equals("Doctor")) {
+							//Doctor sign in
+						}
+						else {
+							boolean authentic;
+							authentic = new PatientFile().IsAuthenticatePatient(user_field.getText(),pass_field.getText());
+							if(authentic){
+								new CurrentUser().UpdateUser(user_field.getText());
+								try{
+									Menu menu = new Menu();
+									menu.start(primaryStage);
+								} catch (FileNotFoundException e)
+								{
+									e.printStackTrace();
+								}
+							} else {
+								a.setHeaderText("Login Unsuccessful");
+								a.setContentText("Incorrect Username/Password");
+								a.showAndWait();
+							}
+						}
+					} else {
+						a.setContentText("Select Role (Doctor/Patient)");
+						a.showAndWait();
+					}
+				}
             }
         });
     }

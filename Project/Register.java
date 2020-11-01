@@ -1,6 +1,8 @@
 package Screens;
 
 import Screens.Login;
+import DataModel.Patient;
+import FileUtils.PatientFile;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -19,6 +21,8 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.MouseEvent;
 import javafx.event.EventHandler;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class Register extends Application  {
     @Override
@@ -49,7 +53,6 @@ public class Register extends Application  {
         
         ChoiceBox<String> state = new ChoiceBox<String>();
         state.getItems().addAll("Karnataka", "Maharashtra", "West Bengal", "Uttar Pradesh", "Kerala");
-        state.setValue("State");
     	
         FileInputStream inputstream1 = new FileInputStream("Images/file.png"); 
         Image file_img = new Image(inputstream1);
@@ -105,15 +108,62 @@ public class Register extends Application  {
         primaryStage.getIcons().add(new Image("file:Images/icon.png"));
         primaryStage.setTitle("Register");
         primaryStage.setAlwaysOnTop(true);
+		gp.requestFocus();
 		
 		confirm.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
-            	//Validate and register
+				Alert a = new Alert(AlertType.ERROR);
+				a.setHeaderText("Invalid Input");
+				a.initOwner(primaryStage);
+
+            	//Validate
+				if (id.getText().isEmpty()) {
+					a.setContentText("Enter Patient ID");
+					a.showAndWait();
+				} else if (name.getText().isEmpty()) {
+					a.setContentText("Enter Name");
+					a.show();
+				} else if (gender.getSelectedToggle() == null) {
+					a.setContentText("Select Gender");
+					a.show();
+				} else if (password.getText().isEmpty()) {
+					a.setContentText("Enter Password");
+					a.show();
+				} else if (confirmPassword.getText().isEmpty() || !confirmPassword.getText().equals(password.getText())) {
+					a.setContentText("Enter Password");
+					a.show();
+				} else if (!confirmPassword.getText().equals(password.getText())) {
+					a.setContentText("Enter correct Password");
+					a.show();
+				} else if (phone.getText().isEmpty()) {
+					a.setContentText("Enter Phone");
+					a.show();
+				} else if (phone.getText().length() != 10 || !phone.getText().chars().allMatch(Character::isDigit)) {
+					a.setContentText("Enter valid Phone");
+					a.show();
+				} else if (address.getText().isEmpty()) {
+					a.setContentText("Enter Address");
+					a.show();
+				} else if (state.getValue() == null) {
+					a.setContentText("Select State");
+					a.show();
+				} else {
+					int ph = Integer.parseInt(phone.getText());
+					RadioButton rb = (RadioButton)gender.getSelectedToggle();
+					Patient p = new Patient(id.getText(),name.getText(),ph,rb.getText(),address.getText(),state.getValue());
+					new PatientFile().addPatient(p,password.getText());
+					try{
+						Login login = new Login();
+						login.start(primaryStage);
+					} catch (FileNotFoundException e)
+					{
+						e.printStackTrace();
+					}
+				}
             }
         });
     }
-
 
     public static void main(String[] args) {
         launch(args);

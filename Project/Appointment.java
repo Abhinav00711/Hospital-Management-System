@@ -1,6 +1,8 @@
 package Screens;
 
 import Screens.Menu;
+import Screens.Login;
+import FileUtils.CurrentUser;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -24,6 +26,14 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 
 public class Appointment extends Application {
+	
+	String id;
+	
+	@Override
+	public void init() throws NullPointerException
+	{
+	
+	}
 
 	@Override
     public void start(Stage primaryStage) throws FileNotFoundException{
@@ -47,7 +57,6 @@ public class Appointment extends Application {
 		specialization.setStyle("-fx-font: normal bold 15px 'arial' ");
 		ChoiceBox<String> specializations = new ChoiceBox<String>();
         specializations.getItems().addAll("General", "ENT", "Cardiologists", "Dermatologists", "Endocrinologists");
-        specializations.setValue("Specialization");
 		e2.getChildren().addAll(specialization, specializations);
 		
 		VBox e3 = new VBox(2);

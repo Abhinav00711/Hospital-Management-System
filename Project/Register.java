@@ -1,3 +1,7 @@
+package Screens;
+
+import Screens.Login;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,6 +17,8 @@ import javafx.geometry.Pos;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.input.MouseEvent;
+import javafx.event.EventHandler;
 
 public class Register extends Application  {
     @Override
@@ -99,7 +105,13 @@ public class Register extends Application  {
         primaryStage.getIcons().add(new Image("file:Images/icon.png"));
         primaryStage.setTitle("Register");
         primaryStage.setAlwaysOnTop(true);
- 
+		
+		confirm.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent arg0) {
+            	//Validate and register
+            }
+        });
     }
 
 

@@ -1,3 +1,9 @@
+package Screens;
+
+import Screens.Appointment;
+import Screens.UserDetails;
+import Screens.Login;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -152,17 +158,27 @@ public class Menu extends Application  {
         vbox1.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
-            	//link to user profile page
+            	try{
+					UserDetails user = new UserDetails();
+					user.start(primaryStage);
+				} catch (FileNotFoundException e)
+				{
+					e.printStackTrace();
+				}
             }
-
         });
         
         vbox2.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
-            	//link to appointment page
+            	try{
+					Appointment appointment = new Appointment();
+					appointment.start(primaryStage);
+				} catch (FileNotFoundException e)
+				{
+					e.printStackTrace();
+				}
             }
-
         });
         
         vbox3.setOnMouseClicked(new EventHandler<MouseEvent>(){
@@ -170,9 +186,7 @@ public class Menu extends Application  {
             public void handle(MouseEvent arg0) {
             	//link to q&a page
             }
-
         });
-
     }
 
     public static void main(String[] args) {

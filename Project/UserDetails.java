@@ -1,3 +1,7 @@
+package Screens;
+
+import Screens.Menu;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,6 +14,8 @@ import javafx.scene.image.*;
 import java.io.FileInputStream; 
 import java.io.FileNotFoundException;
 import javafx.geometry.Pos;
+import javafx.scene.input.MouseEvent;
+import javafx.event.EventHandler;
 
 public class UserDetails extends Application {
 
@@ -82,6 +88,19 @@ public class UserDetails extends Application {
         primaryStage.getIcons().add(new Image("file:Images/icon.png"));
         primaryStage.setTitle("User Details");
         primaryStage.setAlwaysOnTop(true);
+		
+		ok.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent arg0) {
+            	try{
+					Menu menu = new Menu();
+					menu.start(primaryStage);
+				} catch (FileNotFoundException e)
+				{
+					e.printStackTrace();
+				}
+            }
+        });
 	}
 	
 	public Label plabel(String s){

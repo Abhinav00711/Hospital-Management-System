@@ -1,3 +1,7 @@
+package Screens;
+
+import Screens.Menu;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -14,6 +18,10 @@ import javafx.scene.image.*;
 import java.io.FileInputStream; 
 import java.io.FileNotFoundException;
 import javafx.geometry.Pos;
+import javafx.scene.input.MouseEvent;
+import javafx.event.EventHandler;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 
 public class Appointment extends Application {
 
@@ -79,6 +87,18 @@ public class Appointment extends Application {
 		Button confirm = new Button("Confirm");
         confirm.setStyle("-fx-background-color: #278fcc; -fx-text-fill: white;");
 		
+		Button cancel = new Button("Cancel");
+        cancel.setStyle("-fx-background-color: #278fcc; -fx-text-fill: white;");
+		
+		Region region1 = new Region();
+        HBox.setHgrow(region1, Priority.ALWAYS);
+
+        Region region2 = new Region();
+        HBox.setHgrow(region2, Priority.ALWAYS);
+		
+		HBox btn = new HBox(10);
+		btn.getChildren().addAll(region1,confirm,cancel,region2);
+		
 		elements.getChildren().addAll(e2,e3,e4,e5);
 		
 		FileInputStream inputstream1 = new FileInputStream("Images/appointment.png"); 
@@ -91,10 +111,9 @@ public class Appointment extends Application {
 		gp1.add(elements,0,0);
 		gp1.add(app_imv,1,0);
 		gp1.setAlignment(Pos.CENTER);
-		//gp1.setHalignment(app_imv, HPos.CENTER);
 		
 		VBox c = new VBox(15);
-		c.getChildren().addAll(gp1,confirm);
+		c.getChildren().addAll(gp1,btn);
 		c.setAlignment(Pos.CENTER);
 		
 		VBox all = new VBox(25);
@@ -112,6 +131,26 @@ public class Appointment extends Application {
         primaryStage.getIcons().add(new Image("file:Images/icon.png"));
         primaryStage.setTitle("Appointment");
         primaryStage.setAlwaysOnTop(true);
+		
+		confirm.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent arg0) {
+            	//Validate and confirm
+            }
+        });
+		
+		cancel.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent arg0) {
+            	try{
+					Menu menu = new Menu();
+					menu.start(primaryStage);
+				} catch (FileNotFoundException e)
+				{
+					e.printStackTrace();
+				}
+            }
+        });
 	}
 	
 	public static void main(String[] args) {

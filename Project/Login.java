@@ -1,3 +1,8 @@
+package Screens;
+
+import Screens.Register;
+import Screens.Menu;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -19,8 +24,10 @@ import javafx.beans.value.*;
 import java.lang.String;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.HBox;
+import javafx.scene.input.MouseEvent;
+import javafx.event.EventHandler;
 
-public class LoginPage extends Application  {
+public class Login extends Application  {
     @Override
     public void start(Stage primaryStage) throws FileNotFoundException{
     	VBox vbox = new VBox(3);
@@ -129,6 +136,25 @@ public class LoginPage extends Application  {
             } 
         }); 
         
+		register.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent arg0) {
+            	try{
+					Register register = new Register();
+					register.start(primaryStage);
+				} catch (FileNotFoundException e)
+				{
+					e.printStackTrace();
+				}
+            }
+        });
+		
+		login.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent arg0) {
+            	//Authenticate and sign in
+            }
+        });
     }
 
 

@@ -29,6 +29,16 @@ public class Patient{
 		this.status = status;
 	}
 	
+	public Patient(Patient p){
+		this.id = p.getId();
+		this.name = p.getName();
+		this.phone = p.getPhone();
+		this.gender = p.getGender();
+		this.address = p.getAddress();
+		this.state = p.getState();
+		this.status = p.getStatus();
+	}
+	
 	public void setStatus(String status){
 		this.status = status;
 	}

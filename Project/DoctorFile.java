@@ -9,18 +9,19 @@ import java.nio.file.*;
 
 public class DoctorFile{
 	public boolean IsAuthenticateDoctor(String id, String password){
-		File user = new File("DUserList.txt");
+		File user = new File(id.concat(".txt"));
 		if(user.exists()){
 			try{
 				Scanner read = new Scanner(user);
-                read.useDelimiter(",");
-				while(read.nextLine() !=null){
-                      String username = read.next();
-                      String pass = read.next();
-                      if(id.equals(username) && password.equals(pass)){
-                         return true;                
-                      }
-                   }
+                String pass;
+				pass = read.nextLine();
+				pass = read.nextLine();
+				pass = read.nextLine();
+				pass = read.nextLine();
+				pass = read.nextLine();
+                if(password.equals(pass)){
+                   return true;                
+                }
 			} catch (IOException e) {
 				System.out.println("An error occurred.");
 				e.printStackTrace();

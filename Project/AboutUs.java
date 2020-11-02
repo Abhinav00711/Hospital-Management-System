@@ -1,3 +1,5 @@
+package Screens;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -24,7 +26,7 @@ public class AboutUs extends Application  {
         
     	//Contents of scrollPane
     	VBox vbox = new VBox(3);
-    	vbox.setPrefSize(850, 860);
+    	vbox.setPrefSize(950, 860);
     	vbox.setAlignment(Pos.TOP_CENTER);
     	vbox.setSpacing(50);
     	vbox.setStyle("-fx-background-color: LIGHTBLUE;");
@@ -53,7 +55,7 @@ public class AboutUs extends Application  {
     
     	VBox vbox2 = new VBox();
     	vbox2.setAlignment(Pos.TOP_CENTER);
-    	vbox2.setPrefWidth(625);
+		vbox2.setPrefWidth(625);
     	vbox2.setSpacing(20);
     	vbox2.setStyle("-fx-padding: 10;" + 
     			"-fx-background-color: WHITE;" +
@@ -152,9 +154,9 @@ public class AboutUs extends Application  {
     	
     	String q3 = "What is the best treatment for chronic disease?";
     	Label c1q3 = new Label(q3);
-    	String a3 = "Treatment of chronic illness comes in many forms including surgery, physical therapy, \n"
-    			+ "psychological therapy and radiotherapy. However, one of the most common treatment forms \n"
-    			+ "is the use of medication.";
+    	String a3 = "Treatment of chronic illness comes in many forms including surgery, physical\n"
+    			+ "therapy, psychological therapy and radiotherapy. However, one of the most\n"
+    			+ "common treatment forms is the use of medication.";
     	Label c1a3 = new Label(a3);
     	
     	String q4 = "How can you help someone with help problems?";
@@ -363,17 +365,20 @@ public class AboutUs extends Application  {
     	String ca2 = "Clean your hands often. Use soap and water, or an alcohol-based hand rub.\r\n"
     			+ "Maintain a safe distance from anyone who is coughing or sneezing.\r\n"
     			+ "Wear a mask when physical distancing is not possible.\r\n"
-    			+ "Don’t touch your eyes, nose or mouth.\r\n"
-    			+ "Cover your nose and mouth with your bent elbow or a tissue when you cough or sneeze.\r\n"
+    			+ "Dont touch your eyes, nose or mouth.\n"
+    			+ "Cover your nose and mouth with your elbow or a tissue when you cough or sneeze.\r\n"
     			+ "Stay home if you feel unwell.\r\n";
     	Label cc1a2 = new Label(ca2);
     	
     	String cq3 = "What are the treatments of the coronavirus?";
     	Label cc1q3 = new Label(cq3);
-    	String ca3 = "If you feel sick you should rest, drink plenty of fluid, and eat nutritious food. Stay in a separate room \n" 
-    			+ "fromother family members, and use a dedicated bathroom if possible. Clean and disinfect frequently \n"
-    			+ "touched surfaces. Everyone should keep a healthy lifestyle at home. Maintain a healthy diet, sleep, \n"
-    			+ "stay active, and make social contact  with loved ones through the phone or internet. \n"
+    	String ca3 = "If you feel sick you should rest, drink plenty of fluid, and eat nutritious food.\n" 
+				+ "Stay in a separate room fromother family members, and use a dedicated \n"
+				+ "bathroom if possible.\n"
+				+ "Clean and disinfect frequently touched surfaces.\n" 
+				+ "Everyone should keep a healthy lifestyle at home.\n" 
+				+ "Maintain a healthy diet, sleep, stay active, and make social contact  with loved ones\n" 
+				+ "through the phone or internet. \n"
     			+ "Children need extra love and attention from adults during difficult times. \n"
     			+ "Keep to regular routines and schedules as much as possible.\r\n";
     	Label cc1a3 = new Label(ca3);
@@ -466,15 +471,16 @@ public class AboutUs extends Application  {
     	
     	String mq2 = "Vision";
     	Label mc1q2 = new Label(mq2);
-    	String ma2 = "To create and maintain a framework where health care professionals can practice their skills \n"
-    			+ "in the right spirit with empathy, pride and passion. To be able to adapt to dynamic changes \n" 
-    			+"in health care delivery not only in curing illnesses but also in preserving health. ";
+    	String ma2 = "To create and maintain a framework where health care professionals can practice\n"
+				+ "their skills in the right spirit with empathy, pride and passion.\n" 
+				+ "To be able to adapt to dynamic changes in health care delivery not only\n" 
+    			+"in curing illnesses but also in preserving health. ";
     	Label mc1a2 = new Label(ma2);
     	
     	String mq3 = "Strength";
     	Label mc1q3 = new Label(mq3);
     	String ma3 = "Employees are recognized as the most valuable asset in the organization.\n" 
-    			+ "The organization is committed to create & maintain a culture that is conducive to learning.";
+    			+ "We are committed to create & maintain a culture that is conducive to learning.";
     	Label mc1a3 = new Label(ma3);
     	
         ImageView mplus_imv = new ImageView(plus_img);
@@ -596,7 +602,7 @@ public class AboutUs extends Application  {
         vbox.getChildren().add(heading);
         vbox.getChildren().add(hbox);
                 
-        Scene scene = new Scene(scrollPane, 850, 650);
+        Scene scene = new Scene(scrollPane, 950, 750);
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.getIcons().add(new Image("file:Images/icon.png"));
@@ -609,7 +615,7 @@ public class AboutUs extends Application  {
             @Override
             public void handle(MouseEvent arg0) {
             	if(plus_imv.getImage() == plus_img) {
-            		vbox3.setPrefHeight(120);
+            		vbox3.setPrefHeight(140);
             		c1a1.setVisible(true);
             		plus_imv.setImage(minus_img);
             	}
@@ -626,9 +632,9 @@ public class AboutUs extends Application  {
             @Override
             public void handle(MouseEvent arg0) {
             	if(plus1_imv.getImage() == plus_img) {
-            		vbox4.setPrefHeight(160);
+            		vbox4.setPrefHeight(180);
             		c1a2.setVisible(true);
-            		plus1_imv.setImage(minus_img);
+					plus1_imv.setImage(minus_img);
             	}
             	else {
             		vbox4.setPrefHeight(70);
@@ -659,7 +665,7 @@ public class AboutUs extends Application  {
             @Override
             public void handle(MouseEvent arg0) {
             	if(plus3_imv.getImage() == plus_img) {
-            		vbox6.setPrefHeight(170);
+            		vbox6.setPrefHeight(180);
             		c1a4.setVisible(true);
             		plus3_imv.setImage(minus_img);
             	}
@@ -675,11 +681,14 @@ public class AboutUs extends Application  {
             @Override
             public void handle(MouseEvent arg0) {
             	if(cplus_imv.getImage() == plus_img) {
-            		vvbox3.setPrefHeight(260);
+					vbox.setPrefHeight(980);
+					//vbox2.setPrefHeight(980);
+            		vvbox3.setPrefHeight(300);
             		cc1a1.setVisible(true);
             		cplus_imv.setImage(minus_img);
             	}
             	else {
+					vbox.setPrefHeight(750);
             		vvbox3.setPrefHeight(70);
             		cc1a1.setVisible(false);
             		cplus_imv.setImage(plus_img);
@@ -692,11 +701,14 @@ public class AboutUs extends Application  {
             @Override
             public void handle(MouseEvent arg0) {
             	if(cplus1_imv.getImage() == plus_img) {
-            		vvbox4.setPrefHeight(170);
+					vbox.setPrefHeight(980);
+					//vbox2.setPrefHeight(980);
+            		vvbox4.setPrefHeight(180);
             		cc1a2.setVisible(true);
             		cplus1_imv.setImage(minus_img);
             	}
             	else {
+					vbox.setPrefHeight(750);
             		vvbox4.setPrefHeight(70);
             		cc1a2.setVisible(false);
             		cplus1_imv.setImage(plus_img);
@@ -709,11 +721,14 @@ public class AboutUs extends Application  {
             @Override
             public void handle(MouseEvent arg0) {
             	if(cplus2_imv.getImage() == plus_img) {
-            		vvbox5.setPrefHeight(170);
+					vbox.setPrefHeight(980);
+					//vbox2.setPrefHeight(980);
+            		vvbox5.setPrefHeight(200);
             		cc1a3.setVisible(true);
             		cplus2_imv.setImage(minus_img);
             	}
             	else {
+					vbox.setPrefHeight(750);
             		vvbox5.setPrefHeight(70);
             		cc1a3.setVisible(false);
             		cplus2_imv.setImage(plus_img);
@@ -726,7 +741,7 @@ public class AboutUs extends Application  {
             @Override
             public void handle(MouseEvent arg0) {
             	if(mplus_imv.getImage() == plus_img) {
-            		mvbox3.setPrefHeight(110);
+            		mvbox3.setPrefHeight(140);
             		mc1a1.setVisible(true);
             		mplus_imv.setImage(minus_img);
             	}
@@ -743,7 +758,7 @@ public class AboutUs extends Application  {
             @Override
             public void handle(MouseEvent arg0) {
             	if(mplus1_imv.getImage() == plus_img) {
-            		mvbox4.setPrefHeight(110);
+            		mvbox4.setPrefHeight(140);
             		mc1a2.setVisible(true);
             		mplus1_imv.setImage(minus_img);
             	}
@@ -760,7 +775,7 @@ public class AboutUs extends Application  {
             @Override
             public void handle(MouseEvent arg0) {
             	if(mplus2_imv.getImage() == plus_img) {
-            		mvbox5.setPrefHeight(90);
+            		mvbox5.setPrefHeight(120);
             		mc1a3.setVisible(true);
             		mplus2_imv.setImage(minus_img);
             	}
@@ -782,10 +797,10 @@ public class AboutUs extends Application  {
             	mv.setText("Mission & Vision");
             	contact.setText("Contact Us");
             	vbox2.getChildren().clear();
-            	vbox2.getChildren().add(vvbox3);
-                vbox2.getChildren().add(vvbox4);
-                vbox2.getChildren().add(vbox5);
-                vbox2.getChildren().add(vbox6);
+            	vbox2.getChildren().add(vbox3);
+				vbox2.getChildren().add(vbox4);
+				vbox2.getChildren().add(vbox5);
+				vbox2.getChildren().add(vbox6);
         	}
 
         }); 

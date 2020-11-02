@@ -117,7 +117,7 @@ public class DoctorFile{
 	
 	public Doctor GetDetails(String id){
 		String name;
-		int phone;
+		String phone;
 		String address;
 		String speciality;
 		String status;
@@ -126,12 +126,12 @@ public class DoctorFile{
 			if(doctor.exists()) {
 				Scanner d = new Scanner(doctor); 
 				name = d.nextLine();
-				phone = d.nextInt();
+				phone = d.nextLine();
 				address = d.nextLine();
 				speciality = d.nextLine();
 				d.close();
-				status = GetStatus(id);
-				return new Doctor(id, name, phone, address, speciality, status);
+				//status = GetStatus(id);
+				return new Doctor(id, name, phone, address, speciality);
 			} else {
 				System.out.println("Account does not exists.");
 			}

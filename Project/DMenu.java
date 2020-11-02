@@ -1,5 +1,9 @@
 package Screens;
 
+import Screens.DUserDetails;
+import Screens.Login;
+import Screens.AboutUs;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -74,7 +78,7 @@ public class DMenu extends Application  {
 		
 		hbox1.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
             if (newValue) {
-            	hbox1.setMinSize(200, 300);
+            	hbox1.setMinSize(200, 200);
             } else {
             	hbox1.setMinSize(150, 150);
             }
@@ -101,6 +105,52 @@ public class DMenu extends Application  {
             	hbox4.setMinSize(250, 200);
             } else {
             	hbox4.setMinSize(150, 150);
+            }
+        });
+		
+		hbox1.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent arg0) {
+            	try{
+					DUserDetails duser = new DUserDetails();
+					duser.start(primaryStage);
+				} catch (FileNotFoundException e)
+				{
+					e.printStackTrace();
+				}
+            }
+        });
+		
+		hbox2.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent arg0) {
+            	//Check UP
+            }
+        });
+		
+		hbox3.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent arg0) {
+            	try{
+					AboutUs aboutus = new AboutUs();
+					aboutus.start(primaryStage);
+				} catch (FileNotFoundException e)
+				{
+					e.printStackTrace();
+				}
+            }
+        });
+		
+		hbox4.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent arg0) {
+            	try{
+					Login login = new Login();
+					login.start(primaryStage);
+				} catch (FileNotFoundException e)
+				{
+					e.printStackTrace();
+				}
             }
         });
     }

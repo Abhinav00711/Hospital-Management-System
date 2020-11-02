@@ -149,9 +149,8 @@ public class Register extends Application  {
 					a.setContentText("Select State");
 					a.show();
 				} else {
-					int ph = Integer.parseInt(phone.getText());
 					RadioButton rb = (RadioButton)gender.getSelectedToggle();
-					Patient p = new Patient(id.getText(),name.getText(),ph,rb.getText(),address.getText(),state.getValue());
+					Patient p = new Patient(id.getText(),name.getText(),phone.getText(),rb.getText(),address.getText(),state.getValue());
 					new PatientFile().addPatient(p,password.getText());
 					try{
 						Login login = new Login();

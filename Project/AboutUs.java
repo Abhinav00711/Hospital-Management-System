@@ -16,7 +16,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.event.EventHandler;
 
-public class QnA extends Application  {
+public class AboutUs extends Application  {
     @Override
     public void start(Stage primaryStage) throws FileNotFoundException{
     	//Main Screen
@@ -53,6 +53,7 @@ public class QnA extends Application  {
     
     	VBox vbox2 = new VBox();
     	vbox2.setAlignment(Pos.TOP_CENTER);
+    	vbox2.setPrefWidth(625);
     	vbox2.setSpacing(20);
     	vbox2.setStyle("-fx-padding: 10;" + 
     			"-fx-background-color: WHITE;" +
@@ -63,7 +64,7 @@ public class QnA extends Application  {
                 "-fx-border-color: #5494e3;");
     	
     	//contents of vbox1
-    	Label general = new Label("General ▶");
+    	Label general = new Label("> General");
     	general.setStyle("-fx-font: normal bold 12px 'arial' ");
     	
     	Label corona = new Label("Coronavirus");
@@ -599,7 +600,7 @@ public class QnA extends Application  {
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.getIcons().add(new Image("file:Images/icon.png"));
-        primaryStage.setTitle("Menu");
+        primaryStage.setTitle("About Us");
         primaryStage.setAlwaysOnTop(true);
       
         
@@ -776,7 +777,7 @@ public class QnA extends Application  {
             @Override
             public void handle(MouseEvent arg0) {
             	vbox1.setPrefWidth(180);
-            	general.setText("General ▶");
+            	general.setText("> General");
             	corona.setText("Coronavirus");
             	mv.setText("Mission & Vision");
             	contact.setText("Contact Us");
@@ -806,7 +807,7 @@ public class QnA extends Application  {
             public void handle(MouseEvent arg0) {
             	vbox1.setPrefWidth(180);
             	general.setText("General");
-            	corona.setText("Coronavirus ▶");
+            	corona.setText("> Coronavirus");
             	mv.setText("Mission & Vision");
             	contact.setText("Contact Us");
             	vbox2.getChildren().clear();
@@ -833,7 +834,7 @@ public class QnA extends Application  {
             	vbox1.setPrefWidth(180);
             	general.setText("General");
             	corona.setText("Coronavirus");
-            	mv.setText("Mission & Vision ▶");
+            	mv.setText("> Mission & Vision");
             	contact.setText("Contact Us");
             	vbox2.getChildren().clear();
             	vbox2.getChildren().add(mvbox3);
@@ -859,7 +860,7 @@ public class QnA extends Application  {
             	general.setText("General");
             	corona.setText("Coronavirus");
             	mv.setText("Mission & Vision");
-            	contact.setText("Contact Us ▶");
+            	contact.setText("> Contact Us");
             	vbox2.getChildren().clear();
             	vbox2.getChildren().add(uhead);
             	vbox2.getChildren().add(uhbox);

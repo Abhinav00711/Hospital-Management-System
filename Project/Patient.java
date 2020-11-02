@@ -3,13 +3,13 @@ package DataModel;
 public class Patient{
 	private String id;
 	private String name;
-	private int phone;
+	private String phone;
 	private String gender;
 	private String address;
 	private String state;
 	private String status;
 	
-	public Patient(String id, String name, int phone, String gender,String address, String state){
+	public Patient(String id, String name, String phone, String gender,String address, String state){
 		this.id = id;
 		this.name = name;
 		this.phone = phone;
@@ -19,7 +19,7 @@ public class Patient{
 		this.status = "FREE";
 	}
 	
-	public Patient(String id, String name, int phone, String gender,String address, String state, String status){
+	public Patient(String id, String name, String phone, String gender,String address, String state, String status){
 		this.id = id;
 		this.name = name;
 		this.phone = phone;
@@ -49,7 +49,7 @@ public class Patient{
 	public String getName(){
 		return name;
 	}
-	public int getPhone(){
+	public String getPhone(){
 		return phone;
 	}
 	public String getGender(){

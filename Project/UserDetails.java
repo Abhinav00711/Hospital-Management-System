@@ -54,6 +54,11 @@ public class UserDetails extends Application {
 			
 			Label id = dlabel("Patient ID :");
 			Label Pid = plabel(p.getId());
+			System.out.println(p.getId());
+			System.out.println(p.getName());
+			System.out.println(p.getGender());
+			System.out.println(p.getPhone());
+			System.out.println(p.getAddress());
 			HBox hid = new HBox(5);
 			hid.getChildren().addAll(id, Pid);
 			
@@ -68,7 +73,7 @@ public class UserDetails extends Application {
 			hgender.getChildren().addAll(gender, Pgender);
 			
 			Label phone = dlabel("Phone :");
-			Label Pphone = plabel(Integer.toString(p.getPhone()));
+			Label Pphone = plabel(p.getPhone());
 			HBox hphone = new HBox(5);
 			hphone.getChildren().addAll(phone, Pphone);
 			

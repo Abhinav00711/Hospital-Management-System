@@ -25,17 +25,16 @@ public class AboutUs extends Application  {
     	ScrollPane scrollPane = new ScrollPane();
         
     	//Contents of scrollPane
-    	VBox vbox = new VBox();
+    	VBox vbox = new VBox(3);
     	vbox.setPrefSize(950, 860);
     	vbox.setAlignment(Pos.TOP_CENTER);
-    	vbox.setSpacing(20);
+    	vbox.setSpacing(50);
     	vbox.setStyle("-fx-background-color: LIGHTBLUE;");
     	scrollPane.setContent(vbox);
     	
     	//Contents of vbox
     	Label heading = new Label("Question? Look Here.");
-		heading.setStyle("-fx-font: normal bold 30px 'arial';"
-						+ "-fx-text-fill: #d94364;");
+    	heading.setStyle("-fx-font: normal bold 30px 'arial' ");
     	
     	HBox hbox = new HBox(2);
     	hbox.setAlignment(Pos.BASELINE_LEFT);
@@ -43,10 +42,9 @@ public class AboutUs extends Application  {
     	
     	//contents of hbox
     	VBox vbox1 = new VBox();
-		vbox1.setAlignment(Pos.CENTER);
-		vbox1.setPrefHeight(215);
-    	vbox1.setPrefWidth(250);
-    	vbox1.setSpacing(15);
+    	vbox1.setAlignment(Pos.CENTER);
+    	vbox1.setPrefWidth(180);
+    	vbox1.setSpacing(20);
     	vbox1.setStyle("-fx-padding: 10;" + 
     			"-fx-background-color: WHITE;" +
                 "-fx-border-style: solid inside;" + 
@@ -56,7 +54,7 @@ public class AboutUs extends Application  {
                 "-fx-border-color: #5494e3;");
     
     	VBox vbox2 = new VBox();
-    	vbox2.setAlignment(Pos.CENTER);
+    	vbox2.setAlignment(Pos.TOP_CENTER);
 		vbox2.setPrefWidth(625);
     	vbox2.setSpacing(20);
     	vbox2.setStyle("-fx-padding: 10;" + 
@@ -69,18 +67,18 @@ public class AboutUs extends Application  {
     	
     	//contents of vbox1
     	Label general = new Label("> General");
-    	general.setStyle("-fx-font: normal bold 16px 'arial' ");
+    	general.setStyle("-fx-font: normal bold 12px 'arial' ");
     	
     	Label corona = new Label("Coronavirus");
-    	corona.setStyle("-fx-font: normal bold 16px 'arial';"
+    	corona.setStyle("-fx-font: normal bold 12px 'arial';"
         		+ "-fx-text-fill : black");
     	
     	Label mv = new Label("Mission & Vision");
-    	mv.setStyle("-fx-font: normal bold 16px 'arial';"
+    	mv.setStyle("-fx-font: normal bold 12px 'arial';"
         		+ "-fx-text-fill : black");
     	
     	Label contact = new Label("Contact Us");
-    	contact.setStyle("-fx-font: normal bold 16px 'arial';"
+    	contact.setStyle("-fx-font: normal bold 12px 'arial';"
         		+ "-fx-text-fill : black");
     	
     	//contents of vbox2(general)
@@ -135,57 +133,42 @@ public class AboutUs extends Application  {
     	HBox hbox4 = new HBox(2);
     	hbox4.setAlignment(Pos.BASELINE_LEFT);
     	hbox4.setSpacing(10);
-		
-		//question naming format-
-		//c1q1- category 1, question 1
-		//c1a1- category 1, answer 1
+    	
     	String q1 = "How are diseases prevented?";
-		Label c1q1 = new Label(q1);
-		c1q1.setStyle("-fx-font: normal bold 16px 'arial' ;");
-    	String a1 = "\nWashing your hands with soap and water, thoroughly and frequently. \n"
+    	Label c1q1 = new Label(q1);
+    	String a1 = "Washing your hands with soap and water, thoroughly and frequently. \n"
     			+ "Covering your nose and mouth when you sneeze or cough. \n"
     			+ "Disinfecting frequently touched surfaces in your home and workplace. \n"
     			+ "Avoiding contact with sick people or sharing personal items with them.";
-		Label c1a1 = new Label(a1);
-		c1a1.setStyle("-fx-text-fill: #2f6de0;"
-					+ "-fx-font: normal bold 15px 'arial';");
+    	Label c1a1 = new Label(a1);
     	
     	String q2 = "How to overcome any illness?";
-		Label c1q2 = new Label(q2);
-		c1q2.setStyle("-fx-font: normal bold 16px 'arial';");
-    	String a2 = "\nMaintain a healthy diet.\r\n"
+    	Label c1q2 = new Label(q2);
+    	String a2 = "Maintain a healthy diet.\r\n"
     			+ "Get enough sleep\r\n"
     			+ "Positive thinking\r\n"
     			+ "Excercise daily\r\n"
     			+ "Get proper medication\r\n"
     			+ "Get the support you need\r\n";
-		Label c1a2 = new Label(a2);
-		c1a2.setStyle("-fx-text-fill: #2f6de0;"
-					+ "-fx-font: normal bold 15px 'arial';");
+    	Label c1a2 = new Label(a2);
     	
     	String q3 = "What is the best treatment for chronic disease?";
-		Label c1q3 = new Label(q3);
-		c1q3.setStyle("-fx-font: normal bold 16px 'arial' ;");
-    	String a3 = "\nTreatment of chronic illness comes in many forms including surgery, physical\n"
+    	Label c1q3 = new Label(q3);
+    	String a3 = "Treatment of chronic illness comes in many forms including surgery, physical\n"
     			+ "therapy, psychological therapy and radiotherapy. However, one of the most\n"
     			+ "common treatment forms is the use of medication.";
-		Label c1a3 = new Label(a3);
-		c1a3.setStyle("-fx-text-fill: #2f6de0;"
-					+ "-fx-font: normal bold 15px 'arial';");
+    	Label c1a3 = new Label(a3);
     	
     	String q4 = "How can you help someone with help problems?";
-		Label c1q4 = new Label(q4);
-		c1q4.setStyle("-fx-font: normal bold 16px 'arial' ;");
-    	String a4 = "\nAsk what kind of friend the person needs you to be\r\n"
+    	Label c1q4 = new Label(q4);
+    	String a4 = "Ask what kind of friend the person needs you to be\r\n"
     			+ "Offer specific help\r\n"
     			+ "Make plans\r\n"
     			+ "Visit when possible\r\n"
     			+ "Send notes and cards\r\n"
     			+ "Offer to chauffeur or even attend appointments\r\n"
     			+ "";
-		Label c1a4 = new Label(a4);
-		c1a4.setStyle("-fx-text-fill: #2f6de0;"
-					+ "-fx-font: normal bold 15px 'arial';");
+    	Label c1a4 = new Label(a4);
     	
         FileInputStream inputstream = new FileInputStream("Images/plus.png"); 
         Image plus_img = new Image(inputstream);
@@ -363,9 +346,8 @@ public class AboutUs extends Application  {
     	hhbox4.setSpacing(10);
     	
     	String cq1 = "What are the symptoms of the coronavirus?";
-		Label c2q1 = new Label(cq1);
-		c2q1.setStyle("-fx-font: normal bold 16px 'arial' ;");
-    	String ca1 = "\nMost common symptoms:\r\n"
+    	Label cc1q1 = new Label(cq1);
+    	String ca1 = "Most common symptoms:\r\n"
     			+ "\tFever\r\n"
     			+ "\tdry cough\r\n"
     			+ "\ttiredness\r\n"
@@ -376,27 +358,21 @@ public class AboutUs extends Application  {
     			+ "\tConjunctivitis\r\n"
     			+ "\tHeadache\r\n"
     			+ "\tloss of taste or smell\r\n";
-		Label c2a1 = new Label(ca1);
-		c2a1.setStyle("-fx-text-fill: #2f6de0;"
-					+ "-fx-font: normal bold 15px 'arial';");
+    	Label cc1a1 = new Label(ca1);
     	
     	String cq2 = "How to prevent catching the coronavirus?";
-		Label c2q2 = new Label(cq2);
-		c2q2.setStyle("-fx-font: normal bold 16px 'arial' ;");
-    	String ca2 = "\nClean your hands often. Use soap and water, or an alcohol-based hand rub.\r\n"
+    	Label cc1q2 = new Label(cq2);
+    	String ca2 = "Clean your hands often. Use soap and water, or an alcohol-based hand rub.\r\n"
     			+ "Maintain a safe distance from anyone who is coughing or sneezing.\r\n"
     			+ "Wear a mask when physical distancing is not possible.\r\n"
     			+ "Dont touch your eyes, nose or mouth.\n"
     			+ "Cover your nose and mouth with your elbow or a tissue when you cough or sneeze.\r\n"
     			+ "Stay home if you feel unwell.\r\n";
-		Label c2a2 = new Label(ca2);
-		c2a2.setStyle("-fx-text-fill: #2f6de0;"
-					+ "-fx-font: normal bold 15px 'arial';");
+    	Label cc1a2 = new Label(ca2);
     	
     	String cq3 = "What are the treatments of the coronavirus?";
-		Label c2q3 = new Label(cq3);
-		c2q3.setStyle("-fx-font: normal bold 16px 'arial' ;");
-    	String ca3 = "\nIf you feel sick you should rest, drink plenty of fluid, and eat nutritious food.\n" 
+    	Label cc1q3 = new Label(cq3);
+    	String ca3 = "If you feel sick you should rest, drink plenty of fluid, and eat nutritious food.\n" 
 				+ "Stay in a separate room fromother family members, and use a dedicated \n"
 				+ "bathroom if possible.\n"
 				+ "Clean and disinfect frequently touched surfaces.\n" 
@@ -405,9 +381,7 @@ public class AboutUs extends Application  {
 				+ "through the phone or internet. \n"
     			+ "Children need extra love and attention from adults during difficult times. \n"
     			+ "Keep to regular routines and schedules as much as possible.\r\n";
-		Label c2a3 = new Label(ca3);
-		c2a3.setStyle("-fx-text-fill: #2f6de0;"
-					+ "-fx-font: normal bold 15px 'arial';");
+    	Label cc1a3 = new Label(ca3);
     	
         ImageView cplus_imv = new ImageView(plus_img);
         cplus_imv.setFitHeight(20); 
@@ -419,32 +393,32 @@ public class AboutUs extends Application  {
         cplus2_imv.setFitHeight(20); 
         cplus2_imv.setFitWidth(20); 
         
-        hhbox1.getChildren().add(c2q1);
+        hhbox1.getChildren().add(cc1q1);
         hhbox1.getChildren().add(cplus_imv);
         
-        hhbox2.getChildren().add(c2q2);
+        hhbox2.getChildren().add(cc1q2);
         hhbox2.getChildren().add(cplus1_imv);
         
-        hhbox3.getChildren().add(c2q3);
+        hhbox3.getChildren().add(cc1q3);
         hhbox3.getChildren().add(cplus2_imv);
         
         vvbox3.getChildren().add(hhbox1);
-        vvbox3.getChildren().add(c2a1);
+        vvbox3.getChildren().add(cc1a1);
         vvbox3.setPrefHeight(80);
         vvbox3.setPrefWidth(500);
-        c2a1.setVisible(false);
+        cc1a1.setVisible(false);
         
         vvbox4.getChildren().add(hhbox2);
-        vvbox4.getChildren().add(c2a2);
+        vvbox4.getChildren().add(cc1a2);
         vvbox4.setPrefHeight(80);
         vvbox4.setPrefWidth(500);
-        c2a2.setVisible(false);
+        cc1a2.setVisible(false);
         
         vvbox5.getChildren().add(hhbox3);
-        vvbox5.getChildren().add(c2a3);
+        vvbox5.getChildren().add(cc1a3);
         vvbox5.setPrefHeight(80);
         vvbox5.setPrefWidth(500);
-        c2a3.setVisible(false);
+        cc1a3.setVisible(false);
         
         
         //contents of Mission & Vision
@@ -489,34 +463,25 @@ public class AboutUs extends Application  {
     	
     	
     	String mq1 = "Mission";
-		Label c3q1 = new Label(mq1);
-		c3q1.setStyle("-fx-font: normal bold 16px 'arial' ;");
-    	String ma1 = "\nWe share our experience serving patients that makes you happy, giving service \n" 
+    	Label mc1q1 = new Label(mq1);
+    	String ma1 = "We share our experience serving patients that makes you happy, giving service \n" 
     			+ "that makes you smile, in passionate pursuit of our mission, showing love and caring\n" 
     			+ " in all our actions, to enrich as many lives as we possibly can. ";
-		Label c3a1 = new Label(ma1);
-		c3a1.setStyle("-fx-text-fill: #2f6de0;"
-					+ "-fx-font: normal bold 15px 'arial';");
+    	Label mc1a1 = new Label(ma1);
     	
     	String mq2 = "Vision";
-		Label c3q2 = new Label(mq2);
-		c3q2.setStyle("-fx-font: normal bold 16px 'arial' ;");
-    	String ma2 = "\nTo create and maintain a framework where health care professionals can practice\n"
+    	Label mc1q2 = new Label(mq2);
+    	String ma2 = "To create and maintain a framework where health care professionals can practice\n"
 				+ "their skills in the right spirit with empathy, pride and passion.\n" 
 				+ "To be able to adapt to dynamic changes in health care delivery not only\n" 
     			+"in curing illnesses but also in preserving health. ";
-		Label c3a2 = new Label(ma2);
-		c3a2.setStyle("-fx-text-fill: #2f6de0;"
-					+ "-fx-font: normal bold 15px 'arial';");
+    	Label mc1a2 = new Label(ma2);
     	
     	String mq3 = "Strength";
-		Label c3q3 = new Label(mq3);
-		c3q3.setStyle("-fx-font: normal bold 16px 'arial' ;");
-    	String ma3 = "\nEmployees are recognized as the most valuable asset in the organization.\n" 
+    	Label mc1q3 = new Label(mq3);
+    	String ma3 = "Employees are recognized as the most valuable asset in the organization.\n" 
     			+ "We are committed to create & maintain a culture that is conducive to learning.";
-		Label c3a3 = new Label(ma3);
-		c3a3.setStyle("-fx-text-fill: #2f6de0;"
-					+ "-fx-font: normal bold 15px 'arial';");
+    	Label mc1a3 = new Label(ma3);
     	
         ImageView mplus_imv = new ImageView(plus_img);
         mplus_imv.setFitHeight(20); 
@@ -531,32 +496,32 @@ public class AboutUs extends Application  {
         mplus3_imv.setFitHeight(20); 
         mplus3_imv.setFitWidth(20); 
         
-        mhbox1.getChildren().add(c3q1);
+        mhbox1.getChildren().add(mc1q1);
         mhbox1.getChildren().add(mplus_imv);
         
-        mhbox2.getChildren().add(c3q2);
+        mhbox2.getChildren().add(mc1q2);
         mhbox2.getChildren().add(mplus1_imv);
         
-        mhbox3.getChildren().add(c3q3);
+        mhbox3.getChildren().add(mc1q3);
         mhbox3.getChildren().add(mplus2_imv);
       
         mvbox3.getChildren().add(mhbox1);
-        mvbox3.getChildren().add(c3a1);
+        mvbox3.getChildren().add(mc1a1);
         mvbox3.setPrefHeight(80);
         mvbox3.setPrefWidth(500);
-        c3a1.setVisible(false);
+        mc1a1.setVisible(false);
         
         mvbox4.getChildren().add(mhbox2);
-        mvbox4.getChildren().add(c3a2);
+        mvbox4.getChildren().add(mc1a2);
         mvbox4.setPrefHeight(80);
         mvbox4.setPrefWidth(500);
-        c3a2.setVisible(false);
+        mc1a2.setVisible(false);
         
         mvbox5.getChildren().add(mhbox3);
-        mvbox5.getChildren().add(c3a3);
+        mvbox5.getChildren().add(mc1a3);
         mvbox5.setPrefHeight(80);
         mvbox4.setPrefWidth(500);
-        c3a3.setVisible(false);
+        mc1a3.setVisible(false);
         
         
         //Contents of Contact Us
@@ -646,11 +611,11 @@ public class AboutUs extends Application  {
       
         
         //event handling starts here
-        hbox1.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        plus_imv.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
             	if(plus_imv.getImage() == plus_img) {
-            		vbox3.setPrefHeight(150);
+            		vbox3.setPrefHeight(140);
             		c1a1.setVisible(true);
             		plus_imv.setImage(minus_img);
             	}
@@ -663,11 +628,11 @@ public class AboutUs extends Application  {
 
         });
         
-        hbox2.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        plus1_imv.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
             	if(plus1_imv.getImage() == plus_img) {
-            		vbox4.setPrefHeight(185);
+            		vbox4.setPrefHeight(180);
             		c1a2.setVisible(true);
 					plus1_imv.setImage(minus_img);
             	}
@@ -680,11 +645,11 @@ public class AboutUs extends Application  {
 
         });
         
-        hbox3.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        plus2_imv.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
             	if(plus2_imv.getImage() == plus_img) {
-            		vbox5.setPrefHeight(135);
+            		vbox5.setPrefHeight(120);
             		c1a3.setVisible(true);
             		plus2_imv.setImage(minus_img);
             	}
@@ -696,11 +661,11 @@ public class AboutUs extends Application  {
         	}
 
         });
-        hbox4.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        plus3_imv.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
             	if(plus3_imv.getImage() == plus_img) {
-            		vbox6.setPrefHeight(185);
+            		vbox6.setPrefHeight(180);
             		c1a4.setVisible(true);
             		plus3_imv.setImage(minus_img);
             	}
@@ -712,111 +677,111 @@ public class AboutUs extends Application  {
         	}
 
         });     
-        hhbox1.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        cplus_imv.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
             	if(cplus_imv.getImage() == plus_img) {
 					vbox.setPrefHeight(980);
 					//vbox2.setPrefHeight(980);
             		vvbox3.setPrefHeight(300);
-            		c2a1.setVisible(true);
+            		cc1a1.setVisible(true);
             		cplus_imv.setImage(minus_img);
             	}
             	else {
 					vbox.setPrefHeight(750);
             		vvbox3.setPrefHeight(70);
-            		c2a1.setVisible(false);
+            		cc1a1.setVisible(false);
             		cplus_imv.setImage(plus_img);
             	}
         	}
 
         });
         
-        hhbox2.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        cplus1_imv.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
             	if(cplus1_imv.getImage() == plus_img) {
 					vbox.setPrefHeight(980);
 					//vbox2.setPrefHeight(980);
             		vvbox4.setPrefHeight(180);
-            		c2a2.setVisible(true);
+            		cc1a2.setVisible(true);
             		cplus1_imv.setImage(minus_img);
             	}
             	else {
 					vbox.setPrefHeight(750);
             		vvbox4.setPrefHeight(70);
-            		c2a2.setVisible(false);
+            		cc1a2.setVisible(false);
             		cplus1_imv.setImage(plus_img);
             	}
         	}
 
         });
         
-        hhbox3.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        cplus2_imv.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
             	if(cplus2_imv.getImage() == plus_img) {
 					vbox.setPrefHeight(980);
 					//vbox2.setPrefHeight(980);
             		vvbox5.setPrefHeight(200);
-            		c2a3.setVisible(true);
+            		cc1a3.setVisible(true);
             		cplus2_imv.setImage(minus_img);
             	}
             	else {
 					vbox.setPrefHeight(750);
             		vvbox5.setPrefHeight(70);
-            		c2a3.setVisible(false);
+            		cc1a3.setVisible(false);
             		cplus2_imv.setImage(plus_img);
             	}
         	}
 
         });
         
-        mhbox1.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        mplus_imv.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
             	if(mplus_imv.getImage() == plus_img) {
             		mvbox3.setPrefHeight(140);
-            		c3a1.setVisible(true);
+            		mc1a1.setVisible(true);
             		mplus_imv.setImage(minus_img);
             	}
             	else {
             		mvbox3.setPrefHeight(70);
-            		c3a1.setVisible(false);
+            		mc1a1.setVisible(false);
             		mplus_imv.setImage(plus_img);
             	}
         	}
 
         });     
         
-        mhbox2.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        mplus1_imv.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
             	if(mplus1_imv.getImage() == plus_img) {
-            		mvbox4.setPrefHeight(145);
-            		c3a2.setVisible(true);
+            		mvbox4.setPrefHeight(140);
+            		mc1a2.setVisible(true);
             		mplus1_imv.setImage(minus_img);
             	}
             	else {
             		mvbox4.setPrefHeight(70);
-            		c3a2.setVisible(false);
+            		mc1a2.setVisible(false);
             		mplus1_imv.setImage(plus_img);
             	}
         	}
 
         });
         
-        mhbox3.setOnMouseClicked(new EventHandler<MouseEvent>(){
+        mplus2_imv.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
             	if(mplus2_imv.getImage() == plus_img) {
             		mvbox5.setPrefHeight(120);
-            		c3a3.setVisible(true);
+            		mc1a3.setVisible(true);
             		mplus2_imv.setImage(minus_img);
             	}
             	else {
             		mvbox5.setPrefHeight(70);
-            		c3a3.setVisible(false);
+            		mc1a3.setVisible(false);
             		mplus2_imv.setImage(plus_img);
             	}
         	}
@@ -826,6 +791,7 @@ public class AboutUs extends Application  {
         general.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
+            	vbox1.setPrefWidth(180);
             	general.setText("> General");
             	corona.setText("Coronavirus");
             	mv.setText("Mission & Vision");
@@ -840,11 +806,11 @@ public class AboutUs extends Application  {
         }); 
         general.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
             if (newValue) {
-                general.setStyle("-fx-font: normal bold 18px 'arial';"
+                general.setStyle("-fx-font: normal bold 14px 'arial';"
                 		+ "-fx-text-fill : #1487d9");
 
             } else {
-            	general.setStyle("-fx-font: normal bold 16px 'arial';"
+            	general.setStyle("-fx-font: normal bold 12px 'arial';"
                 		+ "-fx-text-fill : black");
             }
         });
@@ -854,6 +820,7 @@ public class AboutUs extends Application  {
         corona.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
+            	vbox1.setPrefWidth(180);
             	general.setText("General");
             	corona.setText("> Coronavirus");
             	mv.setText("Mission & Vision");
@@ -868,17 +835,18 @@ public class AboutUs extends Application  {
         }); 
         corona.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
             if (newValue) {
-                corona.setStyle("-fx-font: normal bold 18px 'arial';"
+                corona.setStyle("-fx-font: normal bold 14px 'arial';"
                 		+ "-fx-text-fill : #1487d9");
 
             } else {
-            	corona.setStyle("-fx-font: normal bold 16px 'arial';"
+            	corona.setStyle("-fx-font: normal bold 12px 'arial';"
                 		+ "-fx-text-fill : black");
             }
         });
         mv.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
+            	vbox1.setPrefWidth(180);
             	general.setText("General");
             	corona.setText("Coronavirus");
             	mv.setText("> Mission & Vision");
@@ -892,17 +860,18 @@ public class AboutUs extends Application  {
         }); 
         mv.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
             if (newValue) {
-                mv.setStyle("-fx-font: normal bold 18px 'arial';"
+                mv.setStyle("-fx-font: normal bold 14px 'arial';"
                 		+ "-fx-text-fill : #1487d9");
 
             } else {
-            	mv.setStyle("-fx-font: normal bold 16px 'arial';"
+            	mv.setStyle("-fx-font: normal bold 12px 'arial';"
                 		+ "-fx-text-fill : black");
             }
         });
         contact.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
+            	vbox1.setPrefWidth(180);
             	general.setText("General");
             	corona.setText("Coronavirus");
             	mv.setText("Mission & Vision");
@@ -915,11 +884,12 @@ public class AboutUs extends Application  {
         }); 
         contact.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
             if (newValue) {
-                contact.setStyle("-fx-font: normal bold 18px 'arial';"
+                contact.setStyle("-fx-font: normal bold 14px 'arial';"
                 		+ "-fx-text-fill : #1487d9");
+
             } else {
-            	contact.setStyle("-fx-font: normal bold 16px 'arial';"
-						+ "-fx-text-fill : black");
+            	contact.setStyle("-fx-font: normal bold 12px 'arial';"
+                		+ "-fx-text-fill : black");
             }
         });
     }

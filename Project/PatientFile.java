@@ -168,7 +168,7 @@ public class PatientFile{
 	
 	public Patient GetDetails(String id){
 		String name;
-		int phone;
+		String phone;
 		String gender;
 		String address;
 		String state;
@@ -178,7 +178,7 @@ public class PatientFile{
 			if(patient.exists()) {
 				Scanner p = new Scanner(patient); 
 				name = p.nextLine();
-				phone = p.nextInt();
+				phone = p.nextLine();
 				gender = p.nextLine();
 				address = p.nextLine();
 				state = p.nextLine();

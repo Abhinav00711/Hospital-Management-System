@@ -3,6 +3,7 @@ package Screens;
 import Screens.Appointment;
 import Screens.UserDetails;
 import Screens.Login;
+import Screens.AboutUs;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -184,7 +185,13 @@ public class Menu extends Application  {
         vbox3.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
-            	//link to q&a page
+            	try{
+					AboutUs aboutus = new AboutUs();
+					aboutus.start(primaryStage);
+				} catch (FileNotFoundException e)
+				{
+					e.printStackTrace();
+				}
             }
         });
     }

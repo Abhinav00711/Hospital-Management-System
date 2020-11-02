@@ -2,8 +2,10 @@ package Screens;
 
 import Screens.Register;
 import Screens.Menu;
+import Screens.DMenu;
 import FileUtils.CurrentUser;
 import FileUtils.PatientFile;
+import FileUtils.DoctorFile;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -171,14 +173,28 @@ public class Login extends Application  {
 					RadioButton rb = (RadioButton)role.getSelectedToggle(); 
 					if (rb != null) { 
 						s = rb.getText();
+						boolean authentic;
 						if(s.equals("Doctor")) {
-							//Doctor sign in
+							authentic = new DoctorFile().IsAuthenticateDoctor(user_field.getText(),pass_field.getText());
+							if(authentic){
+								new CurrentUser().UpdateUser(user_field.getText(), s);
+								try{
+									DMenu dmenu = new DMenu();
+									dmenu.start(primaryStage);
+								} catch (FileNotFoundException e)
+								{
+									e.printStackTrace();
+								}
+							} else {
+								a.setHeaderText("Login Unsuccessful");
+								a.setContentText("Incorrect Username/Password");
+								a.showAndWait();
+							}
 						}
 						else {
-							boolean authentic;
 							authentic = new PatientFile().IsAuthenticatePatient(user_field.getText(),pass_field.getText());
 							if(authentic){
-								new CurrentUser().UpdateUser(user_field.getText());
+								new CurrentUser().UpdateUser(user_field.getText(), s);
 								try{
 									Menu menu = new Menu();
 									menu.start(primaryStage);

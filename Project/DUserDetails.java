@@ -1,10 +1,10 @@
 package Screens;
 
-import Screens.Menu;
+import Screens.DMenu;
 import Screens.Login;
 import FileUtils.CurrentUser;
-import FileUtils.PatientFile;
-import DataModel.Patient;
+import FileUtils.DoctorFile;
+import DataModel.Doctor;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -21,14 +21,14 @@ import javafx.geometry.Pos;
 import javafx.scene.input.MouseEvent;
 import javafx.event.EventHandler;
 
-public class UserDetails extends Application {
+public class DUserDetails extends Application {
 	@Override
     public void start(Stage primaryStage) throws FileNotFoundException{
 		
-		String sid;
+		String did;
 		
-		sid = new CurrentUser().GetUser();
-		if (sid.equals("")){
+		did = new CurrentUser().GetUser();
+		if (did.equals("")){
 			try{
 				Login login = new Login();
 				login.start(primaryStage);
@@ -37,9 +37,9 @@ public class UserDetails extends Application {
 				e.printStackTrace();
 			}
 		} else {
-			Patient p = new PatientFile().GetDetails(sid);
+			Doctor d = new DoctorFile().GetDetails(did);
 			
-			Label heading = new Label("User Details");
+			Label heading = new Label("Doctor Details");
 			heading.setStyle("-fx-font: normal bold 20px 'arial' ");
 			
 			FileInputStream inputstream = new FileInputStream("Images/user_profile.png"); 
@@ -52,41 +52,36 @@ public class UserDetails extends Application {
 			top.getChildren().addAll(user_imv, heading);
 			top.setAlignment(Pos.CENTER);
 			
-			Label id = dlabel("Patient ID :");
-			Label Pid = plabel(p.getId());
+			Label id = dlabel("Doctor ID :");
+			Label Did = plabel(d.getId());
 			HBox hid = new HBox(5);
-			hid.getChildren().addAll(id, Pid);
+			hid.getChildren().addAll(id, Did);
 			
 			Label name = dlabel("Name :");
-			Label Pname = plabel(p.getName());
+			Label Dname = plabel(d.getName());
 			HBox hname = new HBox(5);
-			hname.getChildren().addAll(name, Pname);
-			
-			Label gender = dlabel("Gender :");
-			Label Pgender = plabel(p.getGender());
-			HBox hgender = new HBox(5);
-			hgender.getChildren().addAll(gender, Pgender);
+			hname.getChildren().addAll(name, Dname);
 			
 			Label phone = dlabel("Phone :");
-			Label Pphone = plabel(p.getPhone());
+			Label Dphone = plabel(d.getPhone());
 			HBox hphone = new HBox(5);
-			hphone.getChildren().addAll(phone, Pphone);
+			hphone.getChildren().addAll(phone, Dphone);
 			
 			Label address = dlabel("Address :");
-			Label Paddress = plabel(p.getAddress());
+			Label Daddress = plabel(d.getAddress());
 			HBox haddress = new HBox(5);
-			haddress.getChildren().addAll(address, Paddress);
+			haddress.getChildren().addAll(address, Daddress);
 			
-			Label state = dlabel("State :");
-			Label Pstate = plabel(p.getState());
-			HBox hstate = new HBox(5);
-			hstate.getChildren().addAll(state, Pstate);
+			Label speciality = dlabel("Speciality :");
+			Label Dspeciality = plabel(d.getSpeciality());
+			HBox hspeciality = new HBox(5);
+			hspeciality.getChildren().addAll(speciality, Dspeciality);
 			
 			Button ok = new Button("OK");
 			ok.setStyle("-fx-background-color: #278fcc; -fx-text-fill: white;");
 			
 			VBox element = new VBox(20);
-			element.getChildren().addAll(hid, hname, hgender, hphone, haddress, hstate, ok);
+			element.getChildren().addAll(hid, hname, hphone, haddress, hspeciality, ok);
 			element.setAlignment(Pos.CENTER);
 			
 			VBox all = new VBox(30);
@@ -110,8 +105,8 @@ public class UserDetails extends Application {
 				@Override
 				public void handle(MouseEvent arg0) {
 					try{
-						Menu menu = new Menu();
-						menu.start(primaryStage);
+						DMenu dmenu = new DMenu();
+						dmenu.start(primaryStage);
 					} catch (FileNotFoundException e)
 					{
 						e.printStackTrace();

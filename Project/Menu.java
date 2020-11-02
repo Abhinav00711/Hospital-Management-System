@@ -84,7 +84,7 @@ public class Menu extends Application  {
     	Label app = new Label("Appointment");
     	app.setStyle("-fx-text-fill: #ed615c;" +
     			"-fx-font: normal bold 23px 'arial' ");
-    	Label qa = new Label("Q&A");
+    	Label qa = new Label("About Us");
     	qa.setStyle("-fx-text-fill: #677feb;" +
     			"-fx-font: normal bold 23px 'arial' ");
         

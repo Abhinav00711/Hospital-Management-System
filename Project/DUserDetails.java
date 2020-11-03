@@ -1,7 +1,5 @@
 package Screens;
 
-import Screens.DMenu;
-import Screens.Login;
 import FileUtils.CurrentUser;
 import FileUtils.DoctorFile;
 import DataModel.Doctor;

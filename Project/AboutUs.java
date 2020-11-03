@@ -1,8 +1,5 @@
 package Screens;
 
-import Screens.Menu;
-import Screens.DMenu;
-import Screens.Login;
 import FileUtils.CurrentUser;
 
 import javafx.application.Application;

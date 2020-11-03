@@ -166,6 +166,28 @@ public class PatientFile{
 		return Collections.emptyList();
 	}
 	
+	public void AddAppointmentList(String id){
+		try {
+			File list = new File("AppointmentList.txt");
+			if(!list.exists()){
+				list.createNewFile();
+			}
+			try {
+					FileWriter fw = new FileWriter(list,true);
+					BufferedWriter bw = new BufferedWriter(fw);
+					bw.write(id);
+					bw.close();
+					fw.close();
+			} catch (IOException e) {
+				System.out.println("An error occurred.");
+				e.printStackTrace();
+			}
+		} catch (IOException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
+	}
+	
 	public Patient GetDetails(String id){
 		String name;
 		String phone;

@@ -115,6 +115,22 @@ public class DoctorFile{
 		return Collections.emptyList();
 	}
 	
+	public List<String> GetAppointmentList(){
+		File list = new File("AppointmentList.txt");
+		if(list.exists()){
+			List<String> lines = Collections.emptyList(); 
+			try
+			{
+			  lines = Files.readAllLines(Paths.get(list.getPath()), StandardCharsets.UTF_8); 
+			} catch (IOException e) 
+			{
+			  e.printStackTrace(); 
+			} 
+			return lines;
+		}
+		return Collections.emptyList();
+	}
+	
 	public Doctor GetDetails(String id){
 		String name;
 		String phone;

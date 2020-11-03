@@ -51,6 +51,8 @@ public class Login extends Application  {
         doctor.setToggleGroup(role);
         RadioButton patient = new RadioButton("Patient");
         patient.setToggleGroup(role);
+		
+		role.selectToggle(patient);
         
         Label heading = new Label("Hospital Management System");
         heading.setStyle("-fx-font: normal bold 20px 'arial' "); 

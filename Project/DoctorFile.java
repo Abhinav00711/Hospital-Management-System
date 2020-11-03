@@ -131,6 +131,38 @@ public class DoctorFile{
 		return Collections.emptyList();
 	}
 	
+	public List<String> GetSymptoms (String id){
+		File list = new File(id.concat("_symptoms.txt"));
+		if(list.exists()){
+			List<String> lines = Collections.emptyList(); 
+			try
+			{
+			  lines = Files.readAllLines(Paths.get(list.getPath()), StandardCharsets.UTF_8); 
+			} catch (IOException e) 
+			{
+			  e.printStackTrace(); 
+			} 
+			return lines;
+		}
+		return Collections.emptyList();
+	}
+	
+	public List<String> GetPatientList(){
+		File list = new File("PatientList.txt");
+		if(list.exists()){
+			List<String> lines = Collections.emptyList(); 
+			try
+			{
+			  lines = Files.readAllLines(Paths.get(list.getPath()), StandardCharsets.UTF_8); 
+			} catch (IOException e) 
+			{
+			  e.printStackTrace(); 
+			} 
+			return lines;
+		}
+		return Collections.emptyList();
+	}
+	
 	public Doctor GetDetails(String id){
 		String name;
 		String phone;

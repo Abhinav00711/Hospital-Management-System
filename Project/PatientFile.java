@@ -150,22 +150,6 @@ public class PatientFile{
 		}
 	}
 	
-	public List<String> GetPatientList(){
-		File list = new File("PatientList.txt");
-		if(list.exists()){
-			List<String> lines = Collections.emptyList(); 
-			try
-			{
-			  lines = Files.readAllLines(Paths.get(list.getPath()), StandardCharsets.UTF_8); 
-			} catch (IOException e) 
-			{
-			  e.printStackTrace(); 
-			} 
-			return lines;
-		}
-		return Collections.emptyList();
-	}
-	
 	public void AddAppointmentList(String id){
 		try {
 			File list = new File("AppointmentList.txt");
@@ -256,21 +240,5 @@ public class PatientFile{
 				e.printStackTrace();
 			}
 		}
-	}
-	
-	public List<String> GetSymptoms (String id){
-		File list = new File(id.concat("_symptoms.txt"));
-		if(list.exists()){
-			List<String> lines = Collections.emptyList(); 
-			try
-			{
-			  lines = Files.readAllLines(Paths.get(list.getPath()), StandardCharsets.UTF_8); 
-			} catch (IOException e) 
-			{
-			  e.printStackTrace(); 
-			} 
-			return lines;
-		}
-		return Collections.emptyList();
 	}
 }

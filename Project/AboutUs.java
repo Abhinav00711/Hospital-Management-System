@@ -1,5 +1,10 @@
 package Screens;
 
+import Screens.Menu;
+import Screens.DMenu;
+import Screens.Login;
+import FileUtils.CurrentUser;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -81,6 +86,10 @@ public class AboutUs extends Application  {
     	
     	Label contact = new Label("Contact Us");
     	contact.setStyle("-fx-font: normal bold 16px 'arial';"
+        		+ "-fx-text-fill : black");
+				
+		Label back = new Label("<- Back to Menu");
+    	back.setStyle("-fx-font: normal bold 16px 'arial';"
         		+ "-fx-text-fill : black");
     	
     	//contents of vbox2(general)
@@ -626,10 +635,7 @@ public class AboutUs extends Application  {
         
         
         // Adding Contents of vbox
-        vbox1.getChildren().add(general);
-        vbox1.getChildren().add(corona);
-        vbox1.getChildren().add(mv);
-        vbox1.getChildren().add(contact);
+		vbox1.getChildren().addAll(general,corona,mv,contact,back);
         
         hbox.getChildren().add(vbox1);
         hbox.getChildren().add(vbox2);
@@ -919,6 +925,49 @@ public class AboutUs extends Application  {
                 		+ "-fx-text-fill : #1487d9");
             } else {
             	contact.setStyle("-fx-font: normal bold 16px 'arial';"
+						+ "-fx-text-fill : black");
+            }
+        });
+		
+		back.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent arg0) {
+            	String role;
+				role = new CurrentUser().GetRole();
+				if (role.equals("")){
+					try{
+						Login login = new Login();
+						login.start(primaryStage);
+					} catch (FileNotFoundException e)
+					{
+						e.printStackTrace();
+					}
+				} else if (role.equals("Doctor")){
+					try{
+						DMenu dmenu = new DMenu();
+						dmenu.start(primaryStage);
+					} catch (FileNotFoundException e)
+					{
+						e.printStackTrace();
+					}
+				} else {
+					try{
+						Menu menu = new Menu();
+						menu.start(primaryStage);
+					} catch (FileNotFoundException e)
+					{
+						e.printStackTrace();
+					}
+				}
+        	}
+
+        }); 
+        back.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
+            if (newValue) {
+                back.setStyle("-fx-font: normal bold 18px 'arial';"
+                		+ "-fx-text-fill : #1487d9");
+            } else {
+            	back.setStyle("-fx-font: normal bold 16px 'arial';"
 						+ "-fx-text-fill : black");
             }
         });

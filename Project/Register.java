@@ -1,6 +1,5 @@
 package Screens;
 
-import Screens.Login;
 import DataModel.Patient;
 import FileUtils.PatientFile;
 

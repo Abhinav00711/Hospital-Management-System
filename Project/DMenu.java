@@ -1,9 +1,5 @@
 package Screens;
 
-import Screens.DUserDetails;
-import Screens.Login;
-import Screens.AboutUs;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;

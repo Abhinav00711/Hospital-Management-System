@@ -1,8 +1,5 @@
 package Screens;
 
-import Screens.Register;
-import Screens.Menu;
-import Screens.DMenu;
 import FileUtils.CurrentUser;
 import FileUtils.PatientFile;
 import FileUtils.DoctorFile;

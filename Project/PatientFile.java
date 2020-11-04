@@ -20,7 +20,6 @@ public class PatientFile{
 					bw.close();
 					fw.close();
 					UpdateStatus(id,"FREE");
-					AddPatientList(id);
 					System.out.println("Account Created");
 				} catch (IOException e) {
 					System.out.println("An error occurred.");
@@ -115,7 +114,7 @@ public class PatientFile{
 			File st = new File(id.concat("_Status.txt"));
 			if(st.exists()) {
 				Scanner s = new Scanner(st);
-				fb = s.nextLine();
+				str = s.nextLine();
 				while (s.hasNext()){
 					str = s.nextLine();
 					fb = fb.concat(str + "\n");
@@ -130,28 +129,6 @@ public class PatientFile{
 			e.printStackTrace();
 		}
 		return fb;
-	}
-	
-	public void AddPatientList(String id){
-		try {
-			File list = new File("PatientList.txt");
-			if(!list.exists()){
-				list.createNewFile();
-			}
-			try {
-					FileWriter fw = new FileWriter(list,true);
-					BufferedWriter bw = new BufferedWriter(fw);
-					bw.write(id);
-					bw.close();
-					fw.close();
-			} catch (IOException e) {
-				System.out.println("An error occurred.");
-				e.printStackTrace();
-			}
-		} catch (IOException e) {
-			System.out.println("An error occurred.");
-			e.printStackTrace();
-		}
 	}
 	
 	public void AddAppointmentList(String id){

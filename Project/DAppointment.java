@@ -26,9 +26,8 @@ import javafx.scene.control.TextArea;
 
 public class DAppointment extends Application{
     @Override
-    public void start(Stage primaryStage){
+    public void start(Stage primaryStage) throws FileNotFoundException{
         List<String> pList = new DoctorFile().GetAppointmentList();
-		
 		if (pList.size() == 0){
 			Label heading = new Label("No Appointments");
 			heading.setStyle("-fx-font: normal bold 30px 'arial' ");
@@ -113,7 +112,9 @@ public class DAppointment extends Application{
 			primaryStage.setTitle("Appointment");
 			primaryStage.setAlwaysOnTop(true);
 
+
 			//Screen2
+			
 			HBox hbox1 = new HBox();
 			hbox1.setAlignment(Pos.CENTER);
 			hbox1.setPrefWidth(400);
@@ -169,7 +170,7 @@ public class DAppointment extends Application{
 			vbox2.getChildren().add(fb);
 			vbox2.getChildren().add(hbox2);
 
-
+			Label cheat = new Label();
 
 			//Event Handling
 			back.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
@@ -195,25 +196,47 @@ public class DAppointment extends Application{
 			select.setOnMouseClicked(new EventHandler<MouseEvent>(){
 				@Override
 				public void handle(MouseEvent arg0) {
-					vbox.getChildren().clear();
-					//add the new components
-					hbox1.getChildren().add(vbox2);
-					vbox.getChildren().add(head1);
-					vbox.getChildren().add(hbox1);
+					if ( lv.getSelectionModel().getSelectedItem() != null){
+						vbox.getChildren().clear();
+						String sid = lv.getSelectionModel().getSelectedItem();
+						cheat.setText(sid);
+						List<String> symptoms = new DoctorFile().GetSymptoms (sid);
+						String symp = String.join("\n", symptoms);
+						sym.setText(symp);
+						hbox1.getChildren().add(vbox2);
+						vbox.getChildren().add(head1);
+						vbox.getChildren().add(hbox1);
+					}
 				}
 			});
 			back1.setOnMouseClicked(new EventHandler<MouseEvent>(){
 				@Override
 				public void handle(MouseEvent arg0) {
-					vbox.getChildren().clear();
-					vbox.getChildren().add(head);
-					vbox.getChildren().add(hbox);
+					try{
+						DAppointment dappointment = new DAppointment();
+						dappointment.start(primaryStage);
+					} catch (FileNotFoundException e)
+					{
+						e.printStackTrace();
+					}
 				}
 			});
 			submit.setOnMouseClicked(new EventHandler<MouseEvent>(){
 				@Override
 				public void handle(MouseEvent arg0) {
-					//add to file
+					if (!fb.getText().isEmpty()){
+						DoctorFile df = new DoctorFile();
+						df.UpdateStatus(cheat.getText(), "DONE", fb.getText());
+						pList.remove(cheat.getText());
+						df.RemoveAppointment(pList);
+						try{
+							DAppointment dappointment = new DAppointment();
+							dappointment.start(primaryStage);
+						} catch (FileNotFoundException e)
+						{
+							e.printStackTrace();
+						}
+					}
 				}
 			});
 		}

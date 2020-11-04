@@ -39,8 +39,14 @@ public class Menu extends Application  {
     	
     	HBox hbox = new HBox();
     	hbox.setAlignment(Pos.CENTER);
-    	hbox.setSpacing(30);
-    	
+        hbox.setSpacing(30);
+        
+        HBox hbox1 = new HBox();
+        hbox1.setAlignment(Pos.CENTER);
+
+        HBox hbox2 = new HBox();
+        hbox2.setAlignment(Pos.CENTER);
+        
     	VBox vbox1 = new VBox(3);
     	vbox1.setAlignment(Pos.CENTER);
     	vbox1.setSpacing(30);
@@ -82,7 +88,10 @@ public class Menu extends Application  {
     			"-fx-font: normal bold 23px 'arial' ");
     	Label qa = new Label("About Us");
     	qa.setStyle("-fx-text-fill: #677feb;" +
-    			"-fx-font: normal bold 23px 'arial' ");
+                "-fx-font: normal bold 23px 'arial' ");
+        Label log = new Label("Logout");
+        log.setStyle("-fx-text-fill: RED;" +
+                "-fx-font: normal bold 23px 'arial' ");
         
         FileInputStream inputstream = new FileInputStream("Images/user_profile.png"); 
         Image user_img = new Image(inputstream);
@@ -100,7 +109,28 @@ public class Menu extends Application  {
         Image qa_img = new Image(inputstream2);
         ImageView qa_imv = new ImageView(qa_img);
         qa_imv.setFitHeight(180); 
-        qa_imv.setFitWidth(130); 
+        qa_imv.setFitWidth(130);
+        
+        FileInputStream inputstream3 = new FileInputStream("Images/logout.png"); 
+        Image logout_img = new Image(inputstream3);
+        ImageView logout_imv = new ImageView(logout_img);
+        logout_imv.setFitHeight(50); 
+        logout_imv.setFitWidth(40);
+
+        VBox vbox4 = new VBox(3);
+    	vbox4.setAlignment(Pos.CENTER);
+    	vbox4.setSpacing(20);
+    	vbox4.setStyle("-fx-padding: 10;" + 
+    			"-fx-background-color: WHITE;" +
+                "-fx-border-style: solid inside;" + 
+                "-fx-border-width: 2;" +
+                "-fx-border-insets: 5;" + 
+                "-fx-border-radius: 5;" + 
+                "-fx-border-color: #5494e3;");
+        vbox4.setMinSize(200,40);
+
+        hbox2.getChildren().add(logout_imv);
+        hbox2.getChildren().add(log);
         
         vbox1.getChildren().add(user_imv);
         vbox1.getChildren().add(user);
@@ -110,14 +140,19 @@ public class Menu extends Application  {
         
         vbox3.getChildren().add(qa_imv);
         vbox3.getChildren().add(qa);
+
+        vbox4.getChildren().add(hbox2);
         
         hbox.getChildren().add(vbox1);
         hbox.getChildren().add(vbox2);
         hbox.getChildren().add(vbox3);
+
+        hbox1.getChildren().add(vbox4);
         
         vbox.getChildren().add(heading);
         vbox.getChildren().add(details);
         vbox.getChildren().add(hbox);
+        vbox.getChildren().add(hbox1);
         
                 
         Scene scene = new Scene(vbox, 700, 600);
@@ -151,6 +186,14 @@ public class Menu extends Application  {
             }
         });
         
+        vbox4.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
+            if (newValue) {
+            	vbox4.setMinSize(250, 40);
+            } else {
+            	vbox4.setMinSize(200, 40);
+            }
+        });
+
         vbox1.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
@@ -183,6 +226,19 @@ public class Menu extends Application  {
             	try{
 					AboutUs aboutus = new AboutUs();
 					aboutus.start(primaryStage);
+				} catch (FileNotFoundException e)
+				{
+					e.printStackTrace();
+				}
+            }
+        });
+
+        vbox4.setOnMouseClicked(new EventHandler<MouseEvent>(){
+            @Override
+            public void handle(MouseEvent arg0) {
+            	try{
+					Login login = new Login();
+					login.start(primaryStage);
 				} catch (FileNotFoundException e)
 				{
 					e.printStackTrace();

@@ -45,12 +45,12 @@ public class DoctorFile{
 		}
 	}
 	
-	public void UpdateStatus(String id, String s, String Pid){
+	public void UpdateStatus(String id, String s, String fb){
 		File status = new File(id.concat("_Status.txt"));
 		try {
 			FileWriter fw = new FileWriter(status);
 			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(s + "\n" + Pid);
+			bw.write(s + "\n" + fb);
 			bw.close();
 			fw.close();
 		} catch (IOException e) {
@@ -79,7 +79,7 @@ public class DoctorFile{
 		return "";
 	}
 	
-	public String GetPid(String id){
+	public String GetFeedback(String id){
 		String pid = "";
 		try{
 			File st = new File(id.concat("_Status.txt"));
@@ -129,6 +129,36 @@ public class DoctorFile{
 			return lines;
 		}
 		return Collections.emptyList();
+	}
+	
+	public void RemoveAppointment(String id){
+		List<String> appointments = GetAppointmentList();
+		ListIterator<String> sitr = appointments.listIterator();
+		try {
+			File symp = new File(id.concat("AppointmentList.txt"));
+			if(!symp.exists()){
+				symp.createNewFile();
+			}
+			try {
+				FileWriter fw = new FileWriter(symp);
+				BufferedWriter bw = new BufferedWriter(fw);
+				bw.write(sitr.next());
+				while(sitr.hasNext()){
+					if (!sitr.next().equals(id)){
+						bw.newLine();
+						bw.write(sitr.next());
+					}
+				}
+				bw.close();
+				fw.close();
+			} catch (IOException e) {
+				System.out.println("An error occurred.");
+				e.printStackTrace();
+			}
+		} catch (IOException e) {
+			System.out.println("An error occurred.");
+			e.printStackTrace();
+		}
 	}
 	
 	public List<String> GetSymptoms (String id){

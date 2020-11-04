@@ -131,30 +131,18 @@ public class DoctorFile{
 		return Collections.emptyList();
 	}
 	
-	public void RemoveAppointment(String id){
-		List<String> appointments = GetAppointmentList();
+	public void RemoveAppointment(List<String> appointments){
 		ListIterator<String> sitr = appointments.listIterator();
+		File symp = new File("AppointmentList.txt");
 		try {
-			File symp = new File(id.concat("AppointmentList.txt"));
-			if(!symp.exists()){
-				symp.createNewFile();
-			}
-			try {
-				FileWriter fw = new FileWriter(symp);
-				BufferedWriter bw = new BufferedWriter(fw);
+			FileWriter fw = new FileWriter(symp);
+			BufferedWriter bw = new BufferedWriter(fw);
+			while(sitr.hasNext()){
+				bw.newLine();
 				bw.write(sitr.next());
-				while(sitr.hasNext()){
-					if (!sitr.next().equals(id)){
-						bw.newLine();
-						bw.write(sitr.next());
-					}
-				}
-				bw.close();
-				fw.close();
-			} catch (IOException e) {
-				System.out.println("An error occurred.");
-				e.printStackTrace();
 			}
+			bw.close();
+			fw.close();
 		} catch (IOException e) {
 			System.out.println("An error occurred.");
 			e.printStackTrace();
@@ -163,22 +151,6 @@ public class DoctorFile{
 	
 	public List<String> GetSymptoms (String id){
 		File list = new File(id.concat("_symptoms.txt"));
-		if(list.exists()){
-			List<String> lines = Collections.emptyList(); 
-			try
-			{
-			  lines = Files.readAllLines(Paths.get(list.getPath()), StandardCharsets.UTF_8); 
-			} catch (IOException e) 
-			{
-			  e.printStackTrace(); 
-			} 
-			return lines;
-		}
-		return Collections.emptyList();
-	}
-	
-	public List<String> GetPatientList(){
-		File list = new File("PatientList.txt");
 		if(list.exists()){
 			List<String> lines = Collections.emptyList(); 
 			try

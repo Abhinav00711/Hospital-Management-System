@@ -92,13 +92,14 @@ public class Appointment extends Application {
 				String s = new PatientFile().GetFeedback(sid);
 				
 				TextArea fb = new TextArea(s);
-				fb.setDisable(true);
+				fb.setEditable(false);
 				
 				Button back = new Button("Back to Menu");
 				back.setStyle("-fx-background-color: #278fcc; -fx-text-fill: white;");
 				
 				VBox elements = new VBox(20);
 				elements.setAlignment(Pos.CENTER);
+				elements.setStyle("-fx-background-color: LIGHTBLUE;");
 				elements.getChildren().addAll(heading,fb,back);
 				
 				primaryStage.setScene(new Scene(elements,700,600));

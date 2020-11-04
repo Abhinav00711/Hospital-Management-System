@@ -120,7 +120,13 @@ public class DMenu extends Application  {
 		hbox2.setOnMouseClicked(new EventHandler<MouseEvent>(){
             @Override
             public void handle(MouseEvent arg0) {
-            	//Check UP
+            	try{
+					DAppointment dappointment = new DAppointment();
+					dappointment.start(primaryStage);
+				} catch (FileNotFoundException e)
+				{
+					e.printStackTrace();
+				}
             }
         });
 		

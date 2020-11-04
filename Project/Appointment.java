@@ -85,6 +85,41 @@ public class Appointment extends Application {
 						}
 					}
 				});
+			} else if (status.equals("DONE")){
+				Label heading = new Label("Feedback");
+				heading.setStyle("-fx-font: normal bold 30px 'arial' ");
+				
+				String s = new PatientFile().GetFeedback(sid);
+				
+				TextArea fb = new TextArea(s);
+				fb.setDisable(true);
+				
+				Button back = new Button("Back to Menu");
+				back.setStyle("-fx-background-color: #278fcc; -fx-text-fill: white;");
+				
+				VBox elements = new VBox(20);
+				elements.setAlignment(Pos.CENTER);
+				elements.getChildren().addAll(heading,fb,back);
+				
+				primaryStage.setScene(new Scene(elements,700,600));
+				primaryStage.show();
+				primaryStage.getIcons().add(new Image("file:Images/icon.png"));
+				primaryStage.setTitle("Appointment");
+				primaryStage.setAlwaysOnTop(true);
+				
+				back.setOnMouseClicked(new EventHandler<MouseEvent>(){
+					@Override
+					public void handle(MouseEvent arg0) {
+						new PatientFile().UpdateStatus(sid,"FREE");
+						try{
+							Menu menu = new Menu();
+							menu.start(primaryStage);
+						} catch (FileNotFoundException e)
+						{
+							e.printStackTrace();
+						}
+					}
+				});
 			} else {
 				Label heading = new Label("Appointment Form");
 				heading.setStyle("-fx-font: normal bold 20px 'arial' ");

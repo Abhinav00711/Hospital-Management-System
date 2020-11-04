@@ -74,12 +74,12 @@ public class PatientFile{
 		}
 	}
 	
-	public void UpdateStatus(String id, String s, String Did){
+	public void UpdateStatus(String id, String s, String fb){
 		File status = new File(id.concat("_Status.txt"));
 		try {
 			FileWriter fw = new FileWriter(status);
 			BufferedWriter bw = new BufferedWriter(fw);
-			bw.write(s + "\n" + Did);
+			bw.write(s + "\n" + fb);
 			bw.close();
 			fw.close();
 		} catch (IOException e) {
@@ -108,16 +108,20 @@ public class PatientFile{
 		return "";
 	}
 	
-	public String GetDid(String id){
-		String did = "";
+	public String GetFeedback(String id){
+		String fb = "";
+		String str;
 		try{
 			File st = new File(id.concat("_Status.txt"));
 			if(st.exists()) {
 				Scanner s = new Scanner(st);
-				did = s.nextLine();
-				did = s.nextLine();
+				fb = s.nextLine();
+				while (s.hasNext()){
+					str = s.nextLine();
+					fb = fb.concat(str + "\n");
+				}
 				s.close();
-				return did;
+				return fb;
 			} else {
 				System.out.println("Account does not exists.");
 			}
@@ -125,7 +129,7 @@ public class PatientFile{
 			System.out.println("An error occurred.");
 			e.printStackTrace();
 		}
-		return did;
+		return fb;
 	}
 	
 	public void AddPatientList(String id){

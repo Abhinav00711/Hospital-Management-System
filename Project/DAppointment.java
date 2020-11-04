@@ -22,6 +22,7 @@ import javafx.scene.paint.Color;
 import javafx.beans.value.ChangeListener;
 import java.io.FileNotFoundException;
 import javafx.scene.image.*;
+import javafx.scene.control.TextArea;
 
 public class DAppointment extends Application{
     @Override
@@ -112,6 +113,65 @@ public class DAppointment extends Application{
 			primaryStage.setTitle("Appointment");
 			primaryStage.setAlwaysOnTop(true);
 
+			//Screen2
+			HBox hbox1 = new HBox();
+			hbox1.setAlignment(Pos.CENTER);
+			hbox1.setPrefWidth(400);
+			hbox1.setPrefWidth(500);
+
+			VBox vbox2 = new VBox();
+			vbox2.setPrefSize(600, 500);
+			vbox2.setSpacing(20);
+			vbox2.setStyle("-fx-padding: 10;" + 
+			"-fx-background-color: WHITE;" +
+			"-fx-border-style: solid inside;" + 
+			"-fx-border-width: 2;" +
+			"-fx-border-insets: 5;" + 
+			"-fx-border-radius: 5;" + 
+			"-fx-border-color: #5494e3;");
+
+			Label head1 = new Label("Appointment");
+			head1.setStyle("-fx-font: normal bold 30px 'arial';"
+							+ "-fx-text-fill: #d94364;");
+			head1.setAlignment(Pos.CENTER);
+
+			Label symptoms = new Label("Symptoms");
+			symptoms.setStyle("-fx-font: normal bold 20px 'arial';"
+							+ "-fx-text-fill: DARKBLUE;");
+
+			TextArea sym = new TextArea();
+			sym.setPrefHeight(150);
+			sym.setEditable(false);
+
+			Label feedback = new Label("Doctor's Feedback");
+			feedback.setStyle("-fx-font: normal bold 20px 'arial';"
+							+ "-fx-text-fill: DARKBLUE;");
+
+			TextArea fb = new TextArea();
+			fb.setPrefHeight(150);
+
+			HBox hbox2 = new HBox();
+			hbox2.setAlignment(Pos.CENTER);
+			hbox2.setSpacing(10);
+
+			Button submit = new Button("Submit");
+			submit.setStyle("-fx-background-color: lightgreen; -fx-text-fill: white;");
+
+			Button back1 = new Button("Back");
+			back1.setStyle("-fx-background-color: lightgreen; -fx-text-fill: white;");
+
+			hbox2.getChildren().add(back1);
+			hbox2.getChildren().add(submit);
+
+			vbox2.getChildren().add(symptoms);
+			vbox2.getChildren().add(sym);
+			vbox2.getChildren().add(feedback);
+			vbox2.getChildren().add(fb);
+			vbox2.getChildren().add(hbox2);
+
+
+
+			//Event Handling
 			back.hoverProperty().addListener((ChangeListener<Boolean>) (observable, oldValue, newValue) -> {
 				if (newValue) {
 					back.setTextFill(Color.BLUEVIOLET);
@@ -137,6 +197,23 @@ public class DAppointment extends Application{
 				public void handle(MouseEvent arg0) {
 					vbox.getChildren().clear();
 					//add the new components
+					hbox1.getChildren().add(vbox2);
+					vbox.getChildren().add(head1);
+					vbox.getChildren().add(hbox1);
+				}
+			});
+			back1.setOnMouseClicked(new EventHandler<MouseEvent>(){
+				@Override
+				public void handle(MouseEvent arg0) {
+					vbox.getChildren().clear();
+					vbox.getChildren().add(head);
+					vbox.getChildren().add(hbox);
+				}
+			});
+			submit.setOnMouseClicked(new EventHandler<MouseEvent>(){
+				@Override
+				public void handle(MouseEvent arg0) {
+					//add to file
 				}
 			});
 		}

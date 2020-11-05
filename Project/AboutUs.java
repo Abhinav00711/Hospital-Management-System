@@ -607,13 +607,15 @@ public class AboutUs extends Application  {
         String name1 = "\nName: Abhinav Rathi\n";
         Label n1 = new Label(name1);
         n1.setAlignment(Pos.CENTER);
-        Label e1 = new Label("Email: abhinav.rathi@science.christuniversity.in");
+		Label e1 = new Label("Email: abhinav.rathi@science.christuniversity.in");
+		e1.setWrapText(false);
         e1.setAlignment(Pos.CENTER);
         
         String name2 = "\nName: Vedant Mehrotra\n";
         Label n2 = new Label(name2);
         n2.setAlignment(Pos.CENTER);
-        Label e2 = new Label("Email: vedant.mehrotra@science.christuniversity.in");
+		Label e2 = new Label("Email: vedant.mehrotra@science.christuniversity.in");
+		e2.setWrapText(false);
         e2.setAlignment(Pos.CENTER);
         
         uvbox4.getChildren().add(man_imv);

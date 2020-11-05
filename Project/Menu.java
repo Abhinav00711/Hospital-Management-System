@@ -26,10 +26,11 @@ public class Menu extends Application  {
     	Label heading = new Label("Menu");
     	heading.setStyle("-fx-font: normal bold 30px 'arial' ");
     	
-    	String det = "Hospital Management System allows patients to remotely interact with doctors\nHospital Management System allows patients to remotely interact with doctors\n";
-    	Label details = new Label(det);
+    	String det = "Our hospital's function is to provide complete health care to the needy one, both curative and preventive.\nIt is also a center for providing training to health workers & center for biosocial research.\n";
+        Label details = new Label(det);
 		details.setWrapText(false);
-    	details.setStyle("-fx-padding: 10;" + 
+        details.setStyle("-fx-padding: 10;" + 
+                "-fx-text-fill: #2f79e0;" + 
     			"-fx-background-color: WHITE;" +
                 "-fx-border-style: solid inside;" + 
                 "-fx-border-width: 2;" +
@@ -155,7 +156,7 @@ public class Menu extends Application  {
         vbox.getChildren().add(hbox1);
         
                 
-        Scene scene = new Scene(vbox, 700, 600);
+        Scene scene = new Scene(vbox, 730, 650);
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.getIcons().add(new Image("file:Images/icon.png"));

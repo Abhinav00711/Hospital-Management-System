@@ -571,9 +571,9 @@ public class AboutUs extends Application  {
     	uhead.setStyle("-fx-font: normal bold 15px 'arial';"
         		+ "-fx-text-fill : black");
     	
-    	HBox uhbox = new HBox(2);
-    	uhbox.setAlignment(Pos.CENTER);
-    	uhbox.setSpacing(10);
+    	VBox uvbox = new VBox(2);
+    	uvbox.setAlignment(Pos.CENTER);
+    	uvbox.setSpacing(10);
     	
     	VBox uvbox4 = new VBox();
     	uvbox4.setAlignment(Pos.CENTER);
@@ -608,14 +608,14 @@ public class AboutUs extends Application  {
         Label n1 = new Label(name1);
         n1.setAlignment(Pos.CENTER);
 		Label e1 = new Label("Email: abhinav.rathi@science.christuniversity.in");
-		e1.setWrapText(false);
+		e1.setWrapText(true );
         e1.setAlignment(Pos.CENTER);
         
         String name2 = "\nName: Vedant Mehrotra\n";
         Label n2 = new Label(name2);
         n2.setAlignment(Pos.CENTER);
 		Label e2 = new Label("Email: vedant.mehrotra@science.christuniversity.in");
-		e2.setWrapText(false);
+		e2.setWrapText(true);
         e2.setAlignment(Pos.CENTER);
         
         uvbox4.getChildren().add(man_imv);
@@ -626,8 +626,8 @@ public class AboutUs extends Application  {
         uvbox5.getChildren().add(n2);
         uvbox5.getChildren().add(e2);
         
-    	uhbox.getChildren().add(uvbox4);
-    	uhbox.getChildren().add(uvbox5);
+    	uvbox.getChildren().add(uvbox4);
+    	uvbox.getChildren().add(uvbox5);
     	
     	
     	
@@ -914,7 +914,7 @@ public class AboutUs extends Application  {
             	contact.setText("> Contact Us");
             	vbox2.getChildren().clear();
             	vbox2.getChildren().add(uhead);
-            	vbox2.getChildren().add(uhbox);
+            	vbox2.getChildren().add(uvbox);
         	}
 
         }); 
